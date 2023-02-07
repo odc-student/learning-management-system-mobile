@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter/material.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 import 'package:osl/Const/Var.dart';
 
@@ -11,14 +12,28 @@ class MongoDatabase{
   }
   static Create(String firstname,lastname,email,phonenumber,role,password) async{
     var db = await Db.create(MONGO_URL);
+    await db.open();
+
+    inspect(db);
     var collection = db.collection(COLLECTION_NAME);
     await collection.insertOne({
-      "First Name": firstname,
-      "Last Name": lastname,
-      "Email":email,
-      "Phone Number":phonenumber,
+      "email":email,
+      "password":password,
+      "confirmationCode":"",
+      "resetPasswordToken": "",
+      "resetPasswordExpires": "",
+      "fullName": firstname+" "+lastname,
+      "photo": "",
+      "governorate": "",
+      "municipality": "",
+      "age": "",
+      "gender": "",
+      "dateOfBirth": "",
+      "phoneNumber":phonenumber,
       "Role":role,
-      "Password":password,
+      "listCouers": []
+
+
     });
   }
   static Update(String fieldName1,value1,fieldName2,value2)async{
@@ -31,4 +46,19 @@ class MongoDatabase{
     var collection = db.collection(COLLECTION_NAME);
     await collection.deleteOne({fieldName: value});
   }
+  static Get(String fieldName,value)async{
+    var db = await Db.create(MONGO_URL);
+    await db.open();
+    inspect(db);
+    var collection = db.collection(COLLECTION_NAME);
+    var employ = await collection.find(where.match(fieldName, value).excludeFields([
+
+    ]))
+        .toList();
+    final  iterableMap = employ.whereType<Map>().first;
+return iterableMap["password"].toString();
+  }
+
+
+
 }
