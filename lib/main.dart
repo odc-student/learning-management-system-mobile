@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:osl/API/mongodb.dart';
 import 'package:osl/UI/AuthPage.dart';
+import 'package:osl/UI/UserHomeScreen.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const authpage(),
+      home: const UserScreen(),
     );
   }
 }

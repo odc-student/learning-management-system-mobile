@@ -1,5 +1,13 @@
+
+
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:osl/API/ImagePickerbase64.dart';
 import 'package:osl/API/mongodb.dart';
 import 'package:osl/Widget/button.dart';
 import 'package:osl/Widget/textfaild.dart';
@@ -37,8 +45,37 @@ class _SignupState extends State<Signup> {
     }
     return Colors.deepOrange;
   }
+  File? imageFile;
+  final imagepicker = ImagePicker();
+
+void _getImageBase64(String fieldName1,value1)async{
+
+  final XFile? image = await imagepicker.pickImage(source:ImageSource.gallery);
+  if(image == null)return;
+  Uint8List imagebyte =await image.readAsBytes();
+  String _base64 =base64.encode(imagebyte) ;
+
+    await MongoDatabase.Update(fieldName1, value1, "photo", _base64.toString());
+
+
+}
+
+
   @override
   Widget build(BuildContext context) {
+
+
+
+
+
+
+
+
+
+
+
+
+
     return Container(child: Column(
       children: [
         Text("SignUp Now",style: TextStyle(color: Colors.white),),
@@ -53,6 +90,7 @@ class _SignupState extends State<Signup> {
             _phonenumberTextController),
         getTextField("Phone Number", Icons.phone_android, false,
             _dateOfBirthTextController),
+        ElevatedButton(onPressed: (){Base64.Encod("email", _userEmailTextController.text);}, child: Text("upload",style: TextStyle(color: Colors.white),)),
         getTextField("Governorate", FontAwesomeIcons.locationPin, false,
             _governorateTextController),
         getTextField("Municipality", FontAwesomeIcons.placeOfWorship, false,
@@ -91,6 +129,7 @@ class _SignupState extends State<Signup> {
           ],
         ),
         SigninupButton(context, false, ()async{ await MongoDatabase.Create(_firstnameTextController.text, _lastnameTextController.text, _userEmailTextController.text, _phonenumberTextController.text, "Apprenant", _passwordTextController.text);})
+
       ],
     ),);
   }
