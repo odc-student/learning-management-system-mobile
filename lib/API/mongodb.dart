@@ -10,7 +10,7 @@ class MongoDatabase{
     await db.open();
     inspect(db);
   }
-  static Create(String firstname,lastname,email,phonenumber,role,password) async{
+  static Create(String firstname,lastname,email,phonenumber,password) async{
     var db = await Db.create(MONGO_URL);
     await db.open();
     inspect(db);
@@ -29,7 +29,9 @@ class MongoDatabase{
       "gender": "",
       "dateOfBirth": "",
       "phoneNumber":phonenumber,
-      "Role":role,
+      "is_apprenant": false,
+      "is_formateur":false,
+      "is_admin":false,
       "listCouers": []
 
 
@@ -41,7 +43,12 @@ class MongoDatabase{
     await db.open();
     inspect(db);
     var collection = db.collection(COLLECTION_NAME);
-    await collection.update(where.eq(fieldName1, value1),modify.set(fieldName2, value2));
+
+    if(value2==""){
+      await collection.update(where.eq(fieldName1, value1),modify.set(fieldName2, true));
+    }else{
+      await collection.update(where.eq(fieldName1, value1),modify.set(fieldName2, value2));
+    }
   }
   static Delete(String fieldName,value)async{
     var db = await Db.create(MONGO_URL);
@@ -87,6 +94,14 @@ static GetUser(String fieldName,value, info)async{
       .toList();
   final  iterableMap = employ.whereType<Map>().first;
   return iterableMap[info].toString();
+}
+static EmailExist(String fieldName, value)async{
+  var db = await Db.create(MONGO_URL);
+  await db.open();
+  inspect(db);
+  var collection = db.collection(COLLECTION_NAME);
+  var employ = await collection.find(where.match(fieldName, value)).length;
+  return employ;
 }
 
 }

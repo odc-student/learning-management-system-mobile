@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:osl/UI/Admin/AdminAddFormateur.dart';
 import 'package:osl/UI/SignIn.dart';
 import 'package:osl/UI/SignUp.dart';
 
@@ -12,8 +13,8 @@ class authpage extends StatefulWidget {
 class _authpageState extends State<authpage> {
 
 
-final List<Widget> Header =[ Signup(),
-  Spacer(),
+final List<Widget> Header =[ FormateurSignup(),
+
   Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [

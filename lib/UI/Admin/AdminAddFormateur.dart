@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
@@ -10,32 +11,32 @@ import 'package:osl/API/mongodb.dart';
 import 'package:osl/Widget/button.dart';
 import 'package:osl/Widget/textfaild.dart';
 
-class Signup extends StatefulWidget {
-  const Signup({Key? key}) : super(key: key);
+class FormateurSignup extends StatefulWidget {
+  const FormateurSignup({Key? key}) : super(key: key);
 
   @override
-  State<Signup> createState() => _SignupState();
+  State<FormateurSignup> createState() => _FormateurSignupState();
 }
 
-class _SignupState extends State<Signup> {
+class _FormateurSignupState extends State<FormateurSignup> {
   final TextEditingController _firstnameTextController =
-      TextEditingController();
+  TextEditingController();
   final TextEditingController _lastnameTextController = TextEditingController();
   final TextEditingController _userEmailTextController =
-      TextEditingController();
+  TextEditingController();
   final TextEditingController _phonenumberTextController =
-      TextEditingController();
+  TextEditingController();
   final TextEditingController _passwordTextController = TextEditingController();
   final TextEditingController _confirmpasswordTextController =
-      TextEditingController();
+  TextEditingController();
   final TextEditingController _governorateTextController =
-      TextEditingController();
+  TextEditingController();
   final TextEditingController _municipalityTextController =
-      TextEditingController();
+  TextEditingController();
   final TextEditingController _ageTextController = TextEditingController();
   final TextEditingController _genderTextController = TextEditingController();
   final TextEditingController _dateOfBirthTextController =
-      TextEditingController();
+  TextEditingController();
   bool isChecked = false;
 
   Color getColor(Set<MaterialState> states) {
@@ -58,7 +59,7 @@ class _SignupState extends State<Signup> {
       child: Column(
         children: [
           Text(
-            "SignUp Now",
+            "SignUp Formateur ",
             style: TextStyle(color: Colors.white),
           ),
           Divider(),
@@ -77,13 +78,13 @@ class _SignupState extends State<Signup> {
             child: Row(
               children: [
                 ElevatedButton(
-                    onPressed: () {
-                      Base64.Encod("email", _userEmailTextController.text);
-                    },
-                    child: Text(
-                      "upload",
-                      style: TextStyle(color: Colors.white),
-                    ),style: ButtonStyle(backgroundColor: MaterialStateProperty.resolveWith((states){
+                  onPressed: () {
+                    Base64.Encod("email", _userEmailTextController.text);
+                  },
+                  child: Text(
+                    "upload",
+                    style: TextStyle(color: Colors.white),
+                  ),style: ButtonStyle(backgroundColor: MaterialStateProperty.resolveWith((states){
                   if(states.contains(MaterialState.pressed)) {
                     return Colors.deepOrange;
                   }
@@ -137,35 +138,35 @@ class _SignupState extends State<Signup> {
             if (emailnumber == 0) {
 
 
-                if (_passwordTextController.text == "") {
-                  var snackBar =
-                      SnackBar(content: Text('Possword TextFaild is empty'));
-                  ScaffoldMessenger.of(context).showSnackBar(snackBar);}
-                 else if (_firstnameTextController.text == "") {
+              if (_passwordTextController.text == "") {
                 var snackBar =
-                    SnackBar(content: Text('First Name TextFaild is empty'));
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);}
-                 else if(_lastnameTextController.text==""){
+                SnackBar(content: Text('Possword TextFaild is empty'));
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);}
+              else if (_firstnameTextController.text == "") {
                 var snackBar =
-                      SnackBar(content: Text('Last Name TextFaild is empty'));
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);}
+                SnackBar(content: Text('First Name TextFaild is empty'));
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);}
+              else if(_lastnameTextController.text==""){
+                var snackBar =
+                SnackBar(content: Text('Last Name TextFaild is empty'));
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);}
 
-                   else if (_passwordTextController.text ==
-                        _confirmpasswordTextController.text) {
-                      var snackBar = SnackBar(
-                          content: Text(
-                              "Possword and Confirm Posswrod don't match"));
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    }else{
-                      await MongoDatabase.Create(
-                          _firstnameTextController.text,
-                          _lastnameTextController.text,
-                          _userEmailTextController.text,
-                          _phonenumberTextController.text,
-                          _passwordTextController.text);
-                      await MongoDatabase.Update(
-                          "email", _userEmailTextController.text, "is_active", "");
-                    }
+              else if (_passwordTextController.text ==
+                  _confirmpasswordTextController.text) {
+                var snackBar = SnackBar(
+                    content: Text(
+                        "Possword and Confirm Posswrod don't match"));
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              }else{
+                await MongoDatabase.Create(
+                    _firstnameTextController.text,
+                    _lastnameTextController.text,
+                    _userEmailTextController.text,
+                    _phonenumberTextController.text,
+                    _passwordTextController.text);
+                await MongoDatabase.Update(
+                    "email", _userEmailTextController.text, "is_formateur", "");
+              }
 
 
 
