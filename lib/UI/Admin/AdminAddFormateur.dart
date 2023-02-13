@@ -48,7 +48,7 @@ class _FormateurSignupState extends State<FormateurSignup> {
     if (states.any(interactiveStates.contains)) {
       return Colors.blue;
     }
-    return Colors.deepOrange;
+    return Color(0xFFFF7900);
   }
 
 
@@ -86,9 +86,9 @@ class _FormateurSignupState extends State<FormateurSignup> {
                     style: TextStyle(color: Colors.white),
                   ),style: ButtonStyle(backgroundColor: MaterialStateProperty.resolveWith((states){
                   if(states.contains(MaterialState.pressed)) {
-                    return Colors.deepOrange;
+                    return Color(0xFFFF7900);
                   }
-                  return Colors.deepOrange;
+                  return Color(0xFFFF7900);
                 }), shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30)
                 ))

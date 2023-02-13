@@ -47,7 +47,7 @@ class _SignupState extends State<Signup> {
     if (states.any(interactiveStates.contains)) {
       return Colors.blue;
     }
-    return Colors.deepOrange;
+    return Color(0xFFFF7900);
   }
 
 
@@ -85,9 +85,9 @@ class _SignupState extends State<Signup> {
                       style: TextStyle(color: Colors.white),
                     ),style: ButtonStyle(backgroundColor: MaterialStateProperty.resolveWith((states){
                   if(states.contains(MaterialState.pressed)) {
-                    return Colors.deepOrange;
+                    return Color(0xFFFF7900);
                   }
-                  return Colors.deepOrange;
+                  return Color(0xFFFF7900);
                 }), shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30)
                 ))
@@ -133,7 +133,7 @@ class _SignupState extends State<Signup> {
           SigninupButton(context, false, () async {
             var emailnumber = await MongoDatabase.EmailExist(
                 "email", _userEmailTextController.text);
-            print(emailnumber);
+
             if (emailnumber == 0) {
 
 

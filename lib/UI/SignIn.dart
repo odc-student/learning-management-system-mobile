@@ -26,7 +26,7 @@ class _SignInState extends State<SignIn> {
     if (states.any(interactiveStates.contains)) {
       return Colors.blue;
     }
-    return Colors.deepOrange;
+    return Color(0xFFFF7900);
   }
 
   @override

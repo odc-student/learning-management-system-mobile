@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:osl/API/mongodb.dart';
+import 'package:osl/Scrollview.dart';
 import 'package:osl/UI/Admin/AdminHomeScreen.dart';
 import 'package:osl/UI/AuthPage.dart';
+import 'package:osl/UI/Formateur/FormateurHomeScreen.dart';
 import 'package:osl/UI/User/UserHomeScreen.dart';
+import 'package:osl/test.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,7 +34,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const authpage(),
+      home:  MyHomePage(),
     );
   }
 }
