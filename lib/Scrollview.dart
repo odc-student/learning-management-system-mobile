@@ -93,7 +93,7 @@ class _ShrinkTopListPageState extends State<ShrinkTopListPage> {
                             final topList = topLists[index];
                             final bottomList =bottomLists[index];
 
-                            return Container(width: 100,decoration: BoxDecoration(
+                            return Container(width: 290,height: 100,decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(60)
                             ),
                               child: Column(
@@ -101,12 +101,18 @@ class _ShrinkTopListPageState extends State<ShrinkTopListPage> {
                                   InkWell(
                                     child: Card(
                                       color: topList.color,
-                                      child:Row(mainAxisAlignment: MainAxisAlignment.center,
-                                        children: <Widget>[
-                                          topList.itemicon,
-                                          SizedBox(width: 5,),
-                                          Text(topList.title,style: TextStyle(color: Colors.white),)
-                                        ],
+                                      child:Padding(
+                                        padding: const EdgeInsets.only(left: 18.0),
+                                        child: Container(height: 50,
+                                          child: Row(mainAxisAlignment: MainAxisAlignment.start,
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            children: <Widget>[
+                                              topList.itemicon,
+                                              SizedBox(width: 5,),
+                                              Text(topList.title,style: TextStyle(color: Colors.white),)
+                                            ],
+                                          ),
+                                        ),
                                       ) ,
                                     ),
                                   ),
