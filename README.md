@@ -1,9 +1,9 @@
 # osltestcubit
 
-A project ODC # OSl.
-<p align="end">
+A project ODC # OSl.<p align="end">
 <img src="https://img.shields.io/github/last-commit/odc-student/learning-management-system-mobile/feat-1?label=Last%20commit">
 </p>
+
 <br/>
 ## Getting Started
 
