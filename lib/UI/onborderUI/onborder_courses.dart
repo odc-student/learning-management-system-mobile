@@ -8,8 +8,8 @@ class OnborderListCourses extends StatefulWidget {
 }
 
 class _OnborderListCoursesState extends State<OnborderListCourses> {
-  final TextEditingController _titlecontrole = TextEditingController();
-  final TextEditingController _descriptioncontrole = TextEditingController();
+   TextEditingController _titlecontrole = TextEditingController();
+   TextEditingController _descriptioncontrole = TextEditingController();
 
   @override
   void initState() {
@@ -38,39 +38,69 @@ class _OnborderListCoursesState extends State<OnborderListCourses> {
                   Icons.add,
                   color: Colors.white,
                 ),
-                onTap: () {
-                  AwesomeDialog(
-                    context: context,
-                    dialogType: DialogType.noHeader,
-                    width: double.infinity,
-                    buttonsBorderRadius: BorderRadius.all(
-                      Radius.circular(2),
-                    ),
-                    dismissOnTouchOutside: true,
-                    dismissOnBackKeyPress: true,
-                    onDismissCallback: (type) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text('Dismissed '),
-                        ),
-                      );
-                    },
-                    headerAnimationLoop: false,
-                    animType: AnimType.bottomSlide,
-                    title: 'Add Course',
-                    body: Container(
-                      margin: EdgeInsets.all(30),
-                      child: Column(
-                        children: [
-                          AnimatedTextField(label: 'Course Titile', suffix: Icon(Icons.title), textController: _titlecontrole,),
-                          AnimatedTextField(label: 'Course Description', suffix: Icon(Icons.message_outlined), textController: _descriptioncontrole,)
-                        ],
+                onTap: () {AwesomeDialog(
+                  context: context,
+                  dialogType: DialogType.noHeader,
+                  width: double.infinity,
+                  buttonsBorderRadius: BorderRadius.all(
+                    Radius.circular(2),
+                  ),
+                  dismissOnTouchOutside: true,
+                  dismissOnBackKeyPress: false,
+                  onDismissCallback: (type) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Dismised '),
                       ),
+                    );
+                  },
+                  headerAnimationLoop: false,
+                  animType: AnimType.bottomSlide,
+                  title: 'Add Course',
+                  body: Container(
+                    margin: EdgeInsets.all(30),
+                    child: Column(
+                      children: [
+                        AnimatedTextField(label: 'Course Titile', suffix: Icon(Icons.title), textController: _titlecontrole,),
+                        AnimatedTextField(label: 'Course Description', suffix: Icon(Icons.message_outlined), textController: _descriptioncontrole,)
+                      ],
                     ),
-                    showCloseIcon: true,
-                    btnCancelOnPress: () {},
-                    btnOkOnPress: () {},
-                  ).show();
+                  ),
+                  showCloseIcon: true,
+                  btnCancelOnPress: () {},
+                  btnOkOnPress: () async{
+
+                    context.read<AddCourseCubit>().add(_titlecontrole.text,_descriptioncontrole.text);
+
+                    /*BlocBuilder<AddCourseCubit,AddCourseState>(
+                      builder: (BuildContext context, Object? state){ debugPrint('Builder function called');
+                      if(state is InitAddCourseState){
+                        return Container();
+                      }else if(state is LoadingAddCourseState){
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }else if(state is ResponseAddCourseState){
+
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Course Add Successful"))
+                        );
+
+
+                        return Text("");
+                      }else if(state is ErrorAddCourseState){print(" state: $state");
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Course Add Faild"))
+                      );
+                      return Text("");
+                      }
+                      return Container();
+
+                      },
+                    );*/
+
+                  },
+                ).show();
+
+
                 },
               )
             ],

@@ -1,5 +1,5 @@
 
-import 'package:osltestcubit/models/cour.dart';
+part of 'package:osltestcubit/Variable/imports.dart';
 
 abstract class CourseState{}
 class InitCourseState extends CourseState{}

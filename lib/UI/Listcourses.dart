@@ -72,14 +72,12 @@ class _HomeState extends State<Home> {
                                         'Failed to delete data: ${state.message}',style: TextStyle(color:white),);
                                   }return Container();
                                 });
-                            context
-                                .read<DeletecourseCubit>()
-                                .delete(cour.id ?? "");
                             ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                     content: Text('$index dismissed'))
                             );
-                          }),
+                          }
+                          ),
                     )
 
                             );

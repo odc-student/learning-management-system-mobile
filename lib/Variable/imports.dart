@@ -9,16 +9,11 @@ import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.da
 import 'dart:convert';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
-import '../cubit/sprint/get_data_from_sprint/sprint_data_state.dart';
 import '../cubit/course/delete_course/delete_course_state.dart';
-import '../cubit/course/get_all_courses/all_courses_state.dart';
 import '../../cubit/course/delete_course/delete_course_state.dart';
-import '../../cubit/course/get_all_courses/all_courses_state.dart';
 import 'package:osltestcubit/cubit/course/update_course/update_course_stete.dart';
-import 'package:osltestcubit/cubit/sprint/get_data_from_sprint/sprint_data_state.dart';
 import 'package:osltestcubit/cubit/course/add_course/add_course_state.dart';
-
-import 'package:osltestcubit/models/cour.dart';
+import 'package:osltestcubit/data/models/cour.dart';
 
 
 
@@ -35,11 +30,11 @@ part 'package:osltestcubit/Widgets/custem_textfaild/animated_textfield.dart';
 
 part 'package:osltestcubit/Variable/Var.dart';
 
-part 'package:osltestcubit/Repository/sprint/sprint_data_repository.dart';
-part 'package:osltestcubit/Repository/course/add_course_repository.dart';
-part 'package:osltestcubit/Repository/course/all_courses_repository.dart';
-part 'package:osltestcubit/Repository/course/delete_course_repository.dart';
-part 'package:osltestcubit/Repository/course/update_course_repository.dart';
+part 'package:osltestcubit/data/Repository/sprint/sprint_data_repository.dart';
+part 'package:osltestcubit/data/Repository/course/add_course_repository.dart';
+part 'package:osltestcubit/data/Repository/course/all_courses_repository.dart';
+part 'package:osltestcubit/data/Repository/course/delete_course_repository.dart';
+part 'package:osltestcubit/data/Repository/course/update_course_repository.dart';
 
 
 part 'package:osltestcubit/cubit/sprint/get_data_from_sprint/sprint_data_cubit.dart';
@@ -49,10 +44,13 @@ part 'package:osltestcubit/cubit/course/get_all_courses/all_courses_cubit.dart';
 part 'package:osltestcubit/cubit/course/update_course/update_course_cubit.dart';
 
 
-part '../../Widgets/button.dart';
-part '../../Widgets/cards.dart';
-part '../../Widgets/navbar.dart';
-part '../../Widgets/textfaild.dart';
+part '../cubit/course/get_all_courses/all_courses_state.dart';
+part '../cubit/sprint/get_data_from_sprint/sprint_data_state.dart';
+
+part 'package:osltestcubit/Widgets/button.dart';
+part 'package:osltestcubit/Widgets/cards.dart';
+part 'package:osltestcubit/Widgets/navbar.dart';
+part 'package:osltestcubit/Widgets/textfaild.dart';
 
 
 

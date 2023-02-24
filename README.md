@@ -7,13 +7,13 @@ A project ODC.
 
 <br/>
 
-   ## Architecture:
+## Architecture:
 
     Bloc Cubit
 
 <br/>
 
-   ## Plugin :
+## Plugin :
 
       dependencies:
     cupertino_icons: ^1.0.2
@@ -31,11 +31,11 @@ A project ODC.
 
 <br/>
 
-   ## Screenshots
+## Screenshots
 
 <br/>
 
-   ## Directory Structure (Cubit version)
+## Directory Structure (Cubit version)
 
     📂lib
     │───main.dart  
@@ -95,3 +95,4 @@ A project ODC.
         │───coursecard.dart
         │───navbar.dart
         └───textfaild.dart
+
