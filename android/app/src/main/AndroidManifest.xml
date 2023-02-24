@@ -1,8 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.osl">
+    package="com.example.osltestcubit">
    <application
-       android:requestLegacyExternalStorage="true"
-        android:label="osl"
+        android:label="osltestcubit"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

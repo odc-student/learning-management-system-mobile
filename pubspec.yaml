@@ -1,4 +1,4 @@
-name: osl
+name: osltestcubit
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -40,6 +40,11 @@ dependencies:
   flutter_image_compress: ^0.7.0
   html:
   flutter_html:
+  hydrated_bloc: ^9.1.0
+  flutter_bloc: ^8.1.2
+  equatable: ^2.0.5
+  flutter_animation_progress_bar: ^2.3.1
+  awesome_dialog: ^3.0.2
 
 dev_dependencies:
   flutter_test:
