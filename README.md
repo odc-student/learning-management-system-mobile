@@ -1,14 +1,14 @@
 # osltestcubit
 
-A project ODC # OSl.
+A project ODC.
 <p align="start">
 <img src="https://img.shields.io/github/last-commit/odc-student/learning-management-system-mobile/feat-1?label=Last%20commit">
 </p>
 
 <br/>
-## Getting Started
+   ## Getting Started
 
-# Architecture:
+   # Architecture:
 
     Bloc Cubit
 
