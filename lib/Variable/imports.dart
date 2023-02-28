@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:html/parser.dart';
 import 'package:http/http.dart' as http;
 import 'dart:ui' as ui;
@@ -8,6 +9,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'dart:convert';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:html/parser.dart' show parse;
 
 import '../cubit/course/delete_course/delete_course_state.dart';
 import '../../cubit/course/delete_course/delete_course_state.dart';
@@ -17,7 +19,11 @@ import 'package:osltestcubit/data/models/cour.dart';
 
 
 
-
+import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_html/style.dart';
+import 'package:chewie/chewie.dart';
+import 'package:video_player/video_player.dart';
 
 
 part 'package:osltestcubit/UI/Listcourses.dart';

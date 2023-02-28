@@ -8,8 +8,8 @@ class OnborderListCourses extends StatefulWidget {
 }
 
 class _OnborderListCoursesState extends State<OnborderListCourses> {
-   TextEditingController _titlecontrole = TextEditingController();
-   TextEditingController _descriptioncontrole = TextEditingController();
+  TextEditingController _titlecontrole = TextEditingController();
+  TextEditingController _descriptioncontrole = TextEditingController();
 
   @override
   void initState() {
@@ -69,33 +69,9 @@ class _OnborderListCoursesState extends State<OnborderListCourses> {
                   showCloseIcon: true,
                   btnCancelOnPress: () {},
                   btnOkOnPress: () async{
-
+print('${_titlecontrole.text},${_descriptioncontrole.text}');
                     context.read<AddCourseCubit>().add(_titlecontrole.text,_descriptioncontrole.text);
 
-                    /*BlocBuilder<AddCourseCubit,AddCourseState>(
-                      builder: (BuildContext context, Object? state){ debugPrint('Builder function called');
-                      if(state is InitAddCourseState){
-                        return Container();
-                      }else if(state is LoadingAddCourseState){
-                        return Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      }else if(state is ResponseAddCourseState){
-
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Course Add Successful"))
-                        );
-
-
-                        return Text("");
-                      }else if(state is ErrorAddCourseState){print(" state: $state");
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Course Add Faild"))
-                      );
-                      return Text("");
-                      }
-                      return Container();
-
-                      },
-                    );*/
 
                   },
                 ).show();
@@ -113,63 +89,38 @@ class _OnborderListCoursesState extends State<OnborderListCourses> {
                 child: const CircularProgressIndicator(),
               );
             } else if (state is ResponseCourseState) {
-              final courses = state.cours.course;
+              final courses = state.cours.Record['course'];
               return ListView.builder(
                   itemCount: courses.length,
                   itemBuilder: (context, index) {
-                    final cour = courses[index];
+
+                    var cour = courses[index];
                     return ListTile(
                         title: Container(
-                      child: Dismissible(
-                          key: ValueKey(index.toString()),
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                            child: CourCard(
-                              title: cour.title ?? "",
-                              Description: cour.description ?? "",
-                              active_sprint: cour.is_visible ?? 0,
-                            ),
-                          ),
-                          onDismissed: (direction) {
-                            BlocBuilder<DeletecourseCubit, DeleteCourseState>(
-                                builder: (BuildContext context, Object? state) {
-                              if (state is InitDeleteCourseState) {
-                                return Container();
-                              } else if (state is LoadingDeleteCourseState) {
-                                return Center(
-                                  child: CircularProgressIndicator(),
-                                );
-                              } else if (state is ResponseDeleteCourseState) {
-                                context
-                                    .read<DeletecourseCubit>()
-                                    .delete(cour.id ?? "");
+                          child: Dismissible(
+                              key: ValueKey(index.toString()),
+                              child: Padding(
+                                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                child: CourCard(
+                                  title: cour['titre'] ?? "",
+                                  Description: cour['description'] ?? "",
+                                  active_sprint: cour['is_visible'] ?? 0,
+                                ),
+                              ),
+                              onDismissed: (direction) {
+
+                                context.read<DeletecourseCubit>().delete(cour['_id'] ?? "");
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                        content: Text('$index dismissed')));
-                                return Text("");
-                              } else if (state is ErrorDeleteCourseState) {
-                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                    content: Text(
-                                        'Failed to delete $index :  ${state.message} ')));
-                                return Text(
-                                  'Failed to delete data: ${state.message}',
-                                  style: TextStyle(color: Color(0xFFFFFFFF)),
-                                );
-                              }
-                              return Container();
-                            });
-                            context.read<DeletecourseCubit>().delete(cour.id ?? "");
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('$index dismissed')));
-                          }),
-                    ));
+                                    SnackBar(content: Text('$index dismissed')));
+                              }),
+                        ));
                   });
             } else if (state is ErrorCourseState) {
               return Center(
                   child: Text(
-                state.message,
-                style: TextStyle(color: Colors.white),
-              ));
+                    state.message,
+                    style: TextStyle(color: Colors.white),
+                  ));
             }
 
             return Center(child: Center(child: Text(state.toString())));

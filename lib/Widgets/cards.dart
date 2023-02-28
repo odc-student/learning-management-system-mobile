@@ -95,7 +95,6 @@ class CourCard extends StatelessWidget {
             )],
           ),
         ),
-      ]),
-    );
+      ]));
   }
 }

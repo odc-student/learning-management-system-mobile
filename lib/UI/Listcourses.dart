@@ -28,8 +28,8 @@ class _HomeState extends State<Home> {
               return Center(
                 child: const CircularProgressIndicator(),
               );
-            } else if (state is ResponseCourseState) {
-              final courses = state.cours.course;
+            } else if (state is ResponseCourseState) {//Todo: change the courses from hire to be like these courses["course"][index] and cour['titre']
+              final courses = state.cours.Record['course'];
               return ListView.builder(
                   itemCount: courses.length,
                   itemBuilder: (context, index) {
@@ -41,9 +41,9 @@ class _HomeState extends State<Home> {
                             padding:
                             const EdgeInsets.fromLTRB(10, 0, 10, 0),
                             child: CourCard(
-                              title: cour.title ?? "",
-                              Description: cour.description ?? "",
-                              active_sprint: cour.is_visible ?? 0,
+                              title: cour['titre'] ?? "",
+                              Description: cour['description'] ?? "",
+                              active_sprint: cour['is_visible'] ?? 0,
                             ),
                           ),
                           onDismissed: (direction) {
@@ -58,7 +58,7 @@ class _HomeState extends State<Home> {
                                   } else if (state is ResponseDeleteCourseState) {
                                     context
                                         .read<DeletecourseCubit>()
-                                        .delete(cour.id ?? "");
+                                        .delete(cour['_id'] ?? "");
                                     ScaffoldMessenger.of(context).showSnackBar(
                                         SnackBar(
                                             content: Text('$index dismissed')));

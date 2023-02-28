@@ -8,6 +8,7 @@ class DeleteCoursRepository {
     final uri = Uri.parse("$url/$id");
     final response = await http.delete(uri);
     if (response.statusCode == 200) {
+
       return true ;
     }else{
       throw "Something went wrong code ${response.statusCode}";

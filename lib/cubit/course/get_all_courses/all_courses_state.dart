@@ -12,6 +12,6 @@ class ErrorCourseState extends CourseState{
 }
 
 class ResponseCourseState extends CourseState{
-  final Courses cours;
+  final CoursesRecord cours;
   ResponseCourseState(this.cours);
 }

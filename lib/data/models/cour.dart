@@ -35,6 +35,34 @@ class Courses {
     return Courses(
         success: json['success'],
         course: List<Courseattribute>.from((json['course'] as List<dynamic>)
-            .map((e) => Courseattribute.fromJson(e))).toList());
+            .map((e) => Courseattribute.fromJson(e))).toList()
+    );
+  }
+}
+
+class CoursesRecord{
+  Map<String, dynamic> Record;
+  CoursesRecord({required this.Record,});
+  factory CoursesRecord.fromJson(json)
+  {
+    return CoursesRecord(
+        Record: {"seccess":json['success'],
+          "course":json['course']
+
+        });
+  }}
+
+
+class AddCourseSuccessRes {
+  AddCourseSuccessRes();
+  factory AddCourseSuccessRes.fromJson(dynamic json) {
+    return AddCourseSuccessRes();
+  }
+}
+
+class AddCourseErrorRes {
+  AddCourseErrorRes();
+  factory AddCourseErrorRes.fromJson(dynamic json) {
+    return AddCourseErrorRes();
   }
 }

@@ -3,11 +3,11 @@ part of 'package:osltestcubit/Variable/imports.dart';
 class CoursRepository {
   static const url = urlCourse;
 
-  Future<Courses> getAll() async {
+  Future<CoursesRecord> getAll() async {
     final uri = Uri.parse("$url");
     final response = await http.get(uri);
     if (response.statusCode == 200) {
-      final result = Courses.fromJson(jsonDecode(response.body));
+      final result = CoursesRecord.fromJson(jsonDecode(response.body));
 
       return result;
     } else {

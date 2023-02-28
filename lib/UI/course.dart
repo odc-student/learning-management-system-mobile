@@ -1,5 +1,3 @@
-
-
 part of '../Variable/imports.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -19,7 +17,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-      return Html(data:readmeText ,);
+      return Html(data: '''
+            $readmeText
+          '''
+      ,);
     } else {
       throw Exception('Failed to load content');
     }
@@ -55,15 +56,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-

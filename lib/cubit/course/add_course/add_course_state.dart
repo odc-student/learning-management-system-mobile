@@ -9,6 +9,6 @@ class ErrorAddCourseState extends AddCourseState{
 }
 
 class ResponseAddCourseState extends AddCourseState{
-  final String isadded;
+  final dynamic isadded;
   ResponseAddCourseState(this.isadded);
 }
