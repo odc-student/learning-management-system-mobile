@@ -37,7 +37,7 @@ A project ODC.
 
 ## Directory Structure (Cubit version)
 
-    [📂lib](../lib)
+    📂lib
     │───main.dart  
     │───📂cubit
     │   │───📂auth
