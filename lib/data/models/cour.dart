@@ -39,20 +39,21 @@ class Courses {
     );
   }
 }
-
+/*
 class CoursesRecord{
   Map<String, dynamic> Record;
+
+
   CoursesRecord({required this.Record,});
   factory CoursesRecord.fromJson(json)
   {
     return CoursesRecord(
         Record: {"seccess":json['success'],
           "course":json['course']
-
         });
   }}
 
-
+*/
 class AddCourseSuccessRes {
   AddCourseSuccessRes();
   factory AddCourseSuccessRes.fromJson(dynamic json) {

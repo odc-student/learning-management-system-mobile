@@ -37,7 +37,7 @@ A project ODC.
 
 ## Directory Structure (Cubit version)
 
-    📂lib
+    [📂lib](../lib)
     │───main.dart  
     │───📂cubit
     │   │───📂auth
@@ -64,22 +64,23 @@ A project ODC.
     │   │       │───sprint_data_cubit.dart
     │   │       └───sprint_data_state.dart
     │   └───📂student
-    │───📂models
-    │   └───cour.dart
-    │───📂Repository
-    │   │───📂auth
-    │   │───📂course
-    │   │   │──add_course_repository.dart
-    │   │   │──delete_course_repository.dart
-    │   │   │──get_all_course_repository.dart
-    │   │   └──update_course_repository.dart
-    │   │───📂instructor
-    │   │───📂onboarder
-    │   │───📂quiz
-    │   │───📂reclamation
-    │   │───📂sprint
-    │   │   └───sprint_data_repository.dart
-    │   └───📂student
+    │───📂data
+    │   │───📂models
+    │   │   └───cour.dart
+    │   │───📂Repository
+    │   │   │───📂auth
+    │   │   │───📂course
+    │   │   │   │──add_course_repository.dart
+    │   │   │   │──delete_course_repository.dart
+    │   │   │   │──get_all_course_repository.dart
+    │   │   │   └──update_course_repository.dart
+    │   │   │───📂instructor
+    │   │   │───📂onboarder
+    │   │   │───📂quiz
+    │   │   │───📂reclamation
+    │   │   │───📂sprint
+    │   │   │   └───sprint_data_repository.dart
+    │   │   └───📂student
     │───📂UI
     │   │───📂onborderUI
     │   │───course.dart
@@ -88,11 +89,14 @@ A project ODC.
     │───📂Variable
     │   │───imports.dart  // all import is here
     │   └───Var.dart      // all const is here
-    └───📂Widgets
+    └───📂utils
         │───📂custem_textfaild
+        │   │──animated_textfield.dart
+        │   └──utils.dart
         │───button.dart
         │───cards.dart
         │───coursecard.dart
         │───navbar.dart
+        │───navigator_service.dart
         └───textfaild.dart
 

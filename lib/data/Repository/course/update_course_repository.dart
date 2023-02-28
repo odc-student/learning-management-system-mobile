@@ -18,8 +18,6 @@ class UpdateCourseDataRepository {
     );
     if (response.statusCode == 200) {
 
-
-
       return true ;
     }else{
       throw "Something went wrong code ${response.statusCode}";

@@ -10,8 +10,11 @@ const white =Colors.white;
 
 
 //URL
+  //Course
 const urlCourse="$apiUrl/course";
-const urlSprint="$apiUrl/course";
+
+
+const urlSprint="$apiUrl/sprint";
 
 
 const apiAuthUrl = "$apiUrl/auth";
