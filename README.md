@@ -5,13 +5,11 @@ A project ODC.
 <img src="https://img.shields.io/github/last-commit/odc-student/learning-management-system-mobile/feat-1?label=Last%20commit">
 </p>
 
-<br/>
 
 ## Architecture:
 
     Bloc Cubit
 
-<br/>
 
 ## Plugin :
 
@@ -29,16 +27,15 @@ A project ODC.
     flutter_animation_progress_bar: ^2.3.1
     awesome_dialog: ^3.0.2
 
-<br/>
 
 ## Screenshots
 
-<br/>
 
 ## Directory Structure (Cubit version)
 
-    📂lib
-    │───main.dart  
+[📂lib](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib) 
+
+│───[main.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/main.dart)   
     │───📂cubit
     │   │───📂auth
     │   │   └───📂login
