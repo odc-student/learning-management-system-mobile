@@ -33,8 +33,7 @@ A project ODC.
 
 ## Directory Structure (Cubit version)
 
-[📂lib](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib) 
-
+[📂lib](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib) </br>
 │───[main.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/main.dart)  
  
     │───📂cubit
