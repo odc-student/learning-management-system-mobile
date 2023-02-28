@@ -35,7 +35,8 @@ A project ODC.
 
 [📂lib](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib) 
 
-│───[main.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/main.dart)   
+│───[main.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/main.dart)  
+ 
     │───📂cubit
     │   │───📂auth
     │   │   └───📂login
