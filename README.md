@@ -34,18 +34,18 @@ A project ODC.
 ## Directory Structure (Cubit version)
 
 [📂lib](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib) </br>
-│───[main.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/main.dart)  
- 
-    │───📂cubit
-    │   │───📂auth
-    │   │   └───📂login
-    │   │───📂course
-    │   │   │──📂add_course
-    │   │   │   │───add_course_cubit.dart
-    │   │   │   └───add_course_state.dart
-    │   │   │──📂delete_course
-    │   │   │   │───delete_course_cubit.dart
-    │   │   │   └───delete_course_state.dart
+│───[main.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/main.dart)   </br>
+│───[📂cubit](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit)   </br>
+│   │───[📂auth](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/auth) </br>
+│   │   └───[📂login](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/auth/login) </br>
+│   │───[📂course](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/course) </br>
+│   │   │──[📂add_course](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/course/add_course) </br>
+│   │   │   │───[add_course_cubit.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/course/add_course/add_course_cubit.dart) </br>
+│   │   │   └───[add_course_state.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/course/add_course/add_course_state.dart) </br>
+│   │   │──[📂delete_course](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/course/delete_course) </br>
+│   │   │   │───[delete_course_cubit.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/course/delete_course/delete_course_cubit.dart) </br>
+│   │   │   └───[delete_course_state.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/course/delete_course/delete_course_state.dart) </br>
+   
     │   │   │──📂get_all_course
     │   │   │   │───all_courses_cubit.dart
     │   │   │   └───all_courses_state.dart

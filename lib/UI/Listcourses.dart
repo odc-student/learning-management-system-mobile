@@ -1,4 +1,4 @@
-part of '../Variable/imports.dart';
+part of '../variable/imports.dart';
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 

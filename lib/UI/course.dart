@@ -1,4 +1,4 @@
-part of '../Variable/imports.dart';
+part of '../variable/imports.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key,required this.link}) : super(key: key);

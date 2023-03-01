@@ -1,4 +1,4 @@
-part of 'package:osltestcubit/Variable/imports.dart';
+part of 'package:osltestcubit/variable/imports.dart';
 
 class CourCard extends StatelessWidget {
   TextEditingController _titlecontrole = TextEditingController();
@@ -233,7 +233,7 @@ class CourCard extends StatelessWidget {
                       children: [
                         Container(
                           color: Color(0xFF000000),
-                          height: 29,
+                          height: 30,
                           width: MediaQuery.of(context).size.width * 0.28,
                           child: Text(""),
                         ),
@@ -245,7 +245,7 @@ class CourCard extends StatelessWidget {
                             child: Container(
                               margin: EdgeInsets.only(right: 10),
                               padding: EdgeInsets.only(
-                                  bottom: 10, left: 10, right: 10),
+                                  bottom: 5, left: 10, right: 10),
                               decoration: BoxDecoration(
                                 color: white,
                                 border: Border.all(

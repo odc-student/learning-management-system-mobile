@@ -1,5 +1,5 @@
 
-part of 'package:osltestcubit/Variable/imports.dart';
+part of 'package:osltestcubit/variable/imports.dart';
 
 Widget getTextField(String text, IconData icon, bool isPasswordtype,
     TextEditingController controller){

@@ -1,6 +1,6 @@
 
 
-part of 'package:osltestcubit/Variable/imports.dart';
+part of 'package:osltestcubit/variable/imports.dart';
 class AddCourseRepository{
   static const url=urlCourse;
   Future<dynamic> add(String titre,description,)async{

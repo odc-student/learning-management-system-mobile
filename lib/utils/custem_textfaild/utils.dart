@@ -1,5 +1,5 @@
 
-part of 'package:osltestcubit/Variable/imports.dart';
+part of 'package:osltestcubit/variable/imports.dart';
 
 class Utils {
   static Path createAnimatedPath(

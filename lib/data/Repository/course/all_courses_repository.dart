@@ -1,4 +1,4 @@
-part of 'package:osltestcubit/Variable/imports.dart';
+part of 'package:osltestcubit/variable/imports.dart';
 
 class CoursRepository {
   static const url = urlCourse;
@@ -8,7 +8,6 @@ class CoursRepository {
     final response = await http.get(uri);
     if (response.statusCode == 200) {
       final result = Courses.fromJson(jsonDecode(response.body));
-
       return result;
     } else {
       throw "Something went wrong code ${response.statusCode}";

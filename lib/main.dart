@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'Variable/imports.dart';
+import 'variable/imports.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,12 +34,13 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (BuildContext context) => DeletecourseCubit(DeleteCoursRepository()) ),
         BlocProvider(create: (BuildContext context) => UpdateCourseDataCubit( UpdateCourseDataRepository()) ),
         BlocProvider(create: (BuildContext context) => CoursDataCubit( DataCoursRepository())),
-        BlocProvider(create: (BuildContext context) => AddCourseCubit( AddCourseRepository()) )
+        BlocProvider(create: (BuildContext context) => AddCourseCubit( AddCourseRepository()) ),
+        BlocProvider(create: (BuildContext context) => SigninCubit( SigninRepository()) )
     ],
         child:  MaterialApp(
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigatorService.instance.globalKey,
-          home: OnborderListCourses(),
+          home: authpage(),
         ),),
     );
 

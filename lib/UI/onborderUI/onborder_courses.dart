@@ -1,4 +1,4 @@
-part of 'package:osltestcubit/Variable/imports.dart';
+part of 'package:osltestcubit/variable/imports.dart';
 
 class OnborderListCourses extends StatefulWidget {
   const OnborderListCourses({Key? key}) : super(key: key);
@@ -30,6 +30,7 @@ class _OnborderListCoursesState extends State<OnborderListCourses> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color(0xFF000000),
+//Todo: drawed cubit didn't work
         appBar: AppBar(
           backgroundColor: Color(0xFF000000),
           title: Row(

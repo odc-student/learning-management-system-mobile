@@ -1,4 +1,4 @@
-part of 'package:osltestcubit/Variable/imports.dart';
+part of 'package:osltestcubit/variable/imports.dart';
 
 class AddCourseCubit extends Cubit<AddCourseState>{
   final AddCourseRepository _addCourseRepository;

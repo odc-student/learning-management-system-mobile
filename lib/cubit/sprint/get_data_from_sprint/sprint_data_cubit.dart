@@ -1,5 +1,5 @@
 
-part of 'package:osltestcubit/Variable/imports.dart';
+part of 'package:osltestcubit/variable/imports.dart';
 class CoursDataCubit extends Cubit<CourseDataState>{
   final DataCoursRepository _reposotory;
   CoursDataCubit(this._reposotory) : super(InitCourseDataState());

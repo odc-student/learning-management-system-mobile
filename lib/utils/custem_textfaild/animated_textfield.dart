@@ -1,4 +1,4 @@
-part of 'package:osltestcubit/Variable/imports.dart';
+part of 'package:osltestcubit/variable/imports.dart';
 
 class AnimatedTextField extends StatefulWidget {
   const AnimatedTextField({

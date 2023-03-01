@@ -1,24 +1,25 @@
 
 part of 'package:osltestcubit/variable/imports.dart';
 
-class UpdateCourseDataRepository {
-  static const url = urlCourse;
+class SigninRepository {
+  static const url = urlLogin;
 
-  Future<bool> update(String id , title,value) async {
+  Future<dynamic> login(String email,String pwd) async {
 
-    final uri = Uri.parse("$url/$id");
-    final response = await http.put(
+    final uri = Uri.parse("$url");
+    final response = await http.post(
       uri,
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode({
-        '$title': value,
+        'email': email,
+        'password':pwd,
       }),
     );
     if (response.statusCode == 200) {
-
-      return true ;
+final result = userRes.fromJson(jsonDecode(response.body));
+      return result;
     }else{
       throw "Something went wrong code ${response.statusCode}";
     }
