@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (BuildContext context) => UpdateCourseDataCubit( UpdateCourseDataRepository()) ),
         BlocProvider(create: (BuildContext context) => CoursDataCubit( DataCoursRepository())),
         BlocProvider(create: (BuildContext context) => AddCourseCubit( AddCourseRepository()) ),
+        BlocProvider(create: (BuildContext context) => SignupCubit( SignupRepository()) ),
         BlocProvider(create: (BuildContext context) => SigninCubit( SigninRepository()) )
     ],
         child:  MaterialApp(

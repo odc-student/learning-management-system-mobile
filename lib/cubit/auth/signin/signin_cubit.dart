@@ -10,8 +10,8 @@ class SigninCubit extends Cubit<SigninState>{
     try{
       emit(LoadingSigninState());
       final response = await _reposotory.login(email,pwd);
-NavigatorService.instance.navigateTo(OnborderListCourses());
   emit(ResponseSigninState(response));
+      NavigatorService.instance.navigateTo(OnborderListCourses());
 
 
 

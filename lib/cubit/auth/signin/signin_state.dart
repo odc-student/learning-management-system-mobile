@@ -13,6 +13,7 @@ class ErrorSigninState extends SigninState{
 }
 
 class ResponseSigninState extends SigninState{
-  final userRes issinged;
-  ResponseSigninState(this.issinged);
+  final userRes user;
+
+  ResponseSigninState(this.user);
 }

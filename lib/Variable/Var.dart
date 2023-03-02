@@ -3,6 +3,13 @@ part of 'package:osltestcubit/variable/imports.dart';
 //ODC-OF: 192.168.1.163   ODC-GUST: 10.54.234.78  Prof: 192.168.4.53
 const apiUrl = "http://10.54.234.78:5000/v1/api";
 
+//User Data
+
+var useremail;
+var userfullname;
+var userId;
+
+
 //Colors
 const odc =Color(0xFFFF7900);
 const black = Colors.black;

@@ -35,8 +35,10 @@ class userRes {
     return userRes(
         success: json['success'],
         token: json['token'],
-        userattribute: Map.from(
-                (json['course'] as Map))
+        userattribute:json['user']
     );
   }
 }
+
+
+

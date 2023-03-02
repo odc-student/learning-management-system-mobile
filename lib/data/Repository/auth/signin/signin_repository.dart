@@ -19,7 +19,15 @@ class SigninRepository {
     );
     if (response.statusCode == 200) {
 final result = userRes.fromJson(jsonDecode(response.body));
-      return result;
+
+final userInstance = await SharedPreferences.getInstance();
+await userInstance.setString('email', result.userattribute['email'].toString());
+await userInstance.setString('id', result.userattribute['-id'].toString());
+await userInstance.setString('fullName', result.userattribute['fullName'].toString());
+useremail =userInstance.getString('email');
+userfullname =userInstance.getString('fullName');
+userId=userInstance.getString('id');
+return result;
     }else{
       throw "Something went wrong code ${response.statusCode}";
     }

@@ -11,8 +11,9 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:html/parser.dart' show parse;
 import 'package:image_picker/image_picker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:osltestcubit/cubit/auth/signup/signup_state.dart';
 import 'package:osltestcubit/data/models/user.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../cubit/course/delete_course/delete_course_state.dart';
 import '../../cubit/course/delete_course/delete_course_state.dart';
@@ -47,6 +48,7 @@ part 'package:osltestcubit/data/Repository/course/all_courses_repository.dart';
 part 'package:osltestcubit/data/Repository/course/delete_course_repository.dart';
 part 'package:osltestcubit/data/Repository/course/update_course_repository.dart';
 part 'package:osltestcubit/data/Repository/auth/signin/signin_repository.dart';
+part 'package:osltestcubit/data/Repository/auth/signup/signup_repository.dart';
 
 
 part 'package:osltestcubit/cubit/sprint/get_data_from_sprint/sprint_data_cubit.dart';
@@ -56,6 +58,7 @@ part 'package:osltestcubit/cubit/course/delete_course/delete_course_cubit.dart';
 part 'package:osltestcubit/cubit/course/get_all_courses/all_courses_cubit.dart';
 part 'package:osltestcubit/cubit/course/update_course/update_course_cubit.dart';
 part 'package:osltestcubit/cubit/auth/signin/signin_cubit.dart';
+part 'package:osltestcubit/cubit/auth/signup/signup_cubit.dart';
 
 part '../cubit/course/get_all_courses/all_courses_state.dart';
 part '../cubit/sprint/get_data_from_sprint/sprint_data_state.dart';
