@@ -26,17 +26,33 @@ class userRes {
   final String token;
   final Map userattribute;
 
-  userRes(
-      {required this.success,
-      required this.token,
-      required this.userattribute});
+  userRes({required this.success,
+    required this.token,
+    required this.userattribute});
 
   factory userRes.fromJson(json) {
     return userRes(
         success: json['success'],
         token: json['token'],
+        userattribute: json['user']
+    );
+  }
+}
+
+class userSucc {
+  final bool success;
+  final Map userattribute;
+
+  userSucc({
+    required this.success,
+    required this.userattribute,
+  });
+
+  factory userSucc.fromJson(json){
+    return userSucc(success: json['success'],
         userattribute:json['user']
     );
+
   }
 }
 

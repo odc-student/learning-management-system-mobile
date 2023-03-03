@@ -21,12 +21,9 @@ class SigninRepository {
 final result = userRes.fromJson(jsonDecode(response.body));
 
 final userInstance = await SharedPreferences.getInstance();
-await userInstance.setString('email', result.userattribute['email'].toString());
-await userInstance.setString('id', result.userattribute['-id'].toString());
-await userInstance.setString('fullName', result.userattribute['fullName'].toString());
-useremail =userInstance.getString('email');
-userfullname =userInstance.getString('fullName');
-userId=userInstance.getString('id');
+await userInstance.setString('token', result.token.toString());
+
+token=userInstance.getString('token');
 return result;
     }else{
       throw "Something went wrong code ${response.statusCode}";

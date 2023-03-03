@@ -5,9 +5,10 @@ const apiUrl = "http://10.54.234.78:5000/v1/api";
 
 //User Data
 
-var useremail;
-var userfullname;
-var userId;
+var token;
+var email;
+var fullname;
+var id ;
 
 
 //Colors

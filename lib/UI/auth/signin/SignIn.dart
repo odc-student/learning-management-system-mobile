@@ -1,6 +1,5 @@
 part of 'package:osltestcubit/variable/imports.dart';
 
-
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
 
@@ -14,7 +13,6 @@ class _SignInState extends State<SignIn> {
   final TextEditingController _passwordTextController = TextEditingController();
   bool isRemambred = false;
 
-
   Color getColor(Set<MaterialState> states) {
     const Set<MaterialState> interactiveStates = <MaterialState>{
       MaterialState.pressed,
@@ -26,6 +24,7 @@ class _SignInState extends State<SignIn> {
     }
     return Color(0xFFFF7900);
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -56,26 +55,22 @@ class _SignInState extends State<SignIn> {
             ],
           ),
           SigninupButton(context, true, () async {
-
-
             if (_userEmailTextController.text.isEmpty) {
-              var snackBar = SnackBar(content: Text('Email TextFaild is empty'));
+              var snackBar =
+                  SnackBar(content: Text('Email TextFaild is empty'));
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              if(_passwordTextController.text.isEmpty){
-                var snackBar = SnackBar(content: Text('Possword TextFaild is empty'));
+              if (_passwordTextController.text.isEmpty) {
+                var snackBar =
+                    SnackBar(content: Text('Possword TextFaild is empty'));
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
-
               }
-            }else{
-            context.read<SigninCubit>().Login(
-                _userEmailTextController.text,
-                _passwordTextController.text);
-
-           }
+            } else {
+              context.read<SigninCubit>().Login(
+                  _userEmailTextController.text, _passwordTextController.text);
+            }
           })
         ],
       ),
     );
   }
-
 }
