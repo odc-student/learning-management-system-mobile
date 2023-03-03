@@ -37,12 +37,15 @@ A project ODC.
 │───[main.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/main.dart)   </br>
 │───[📂cubit](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit)   </br>
 │   │───[📂auth](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/auth) </br>
-│   │   └──[📂signin](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/auth/signin) </br>
+│   │   │──[📂signin](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/auth/signin) </br>
 │   │   │   │───[signin_cubit.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/auth/signin/signin_cubit.dart) </br>
 │   │   │   └───[signin_state.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/auth/signin/signin_state.dart) </br>
-│   │   └──[📂signup](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/auth/signup) </br>
-│   │       │───[signup_cubit.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/auth/signup/signup_cubit.dart) </br>
-│   │       └───[signup_state.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/auth/signup/signup_state.dart) </br>
+│   │   │──[📂signup](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/auth/signup) </br>
+│   │   │   │───[signup_cubit.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/auth/signup/signup_cubit.dart) </br>
+│   │   │   └───[signup_state.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/auth/signup/signup_state.dart) </br>
+│   │   └───📂user
+│   │       │───update_cubit.dart
+│   │       └───📂update_state.dart
 │   │───[📂course](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/course) </br>
 │   │   │──[📂add_course](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/course/add_course) </br>
 │   │   │   │───[add_course_cubit.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/course/add_course/add_course_cubit.dart) </br>
@@ -69,8 +72,14 @@ A project ODC.
     │───📂data
     │   │───📂models
     │   │   └───cour.dart
-    │   │───📂Repository
+    │   │───📂repository
     │   │   │───📂auth
+    │   │   │    │───📂signin
+    │   │   │    │    └───signin_repository.dart
+    │   │   │    │───📂signup
+    │   │   │    │   └───signup_repository.dart
+    │   │   │    └───📂user
+    │   │   │        └───signup_repository.dart
     │   │   │───📂course
     │   │   │   │──add_course_repository.dart
     │   │   │   │──delete_course_repository.dart
@@ -83,12 +92,23 @@ A project ODC.
     │   │   │───📂sprint
     │   │   │   └───sprint_data_repository.dart
     │   │   └───📂student
-    │───📂UI
+    │───📂ui
+    │   │───📂auth
+    │   │   │───📂signin
+    │   │   │   └───SignIn.dart
+    │   │   │───📂signup
+    │   │   │   └───SignUp.dart
+    │   │   │───📂signup
+    │   │   │   └───SignUp.dart
+    │   │   │───📂user
+    │   │   │   └───profile.dart
+    │   │   └───AuthPage.dart
     │   │───📂onborderUI
+    │   │   └───onborder_courses.dart
     │   │───course.dart
     │   │───Listcourses.dart
     │   └───update_course.dart
-    │───📂Variable
+    │───📂variable
     │   │───imports.dart  // all import is here
     │   └───Var.dart      // all const is here
     └───📂utils
@@ -98,6 +118,7 @@ A project ODC.
         │───button.dart
         │───cards.dart
         │───coursecard.dart
+        │───ImagePickerbase64.dart
         │───navbar.dart
         │───navigator_service.dart
         └───textfaild.dart

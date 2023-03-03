@@ -1,5 +1,5 @@
+part of 'package:osltestcubit/variable/imports.dart';
 
-part of '../variable/imports.dart';
 class CourseData extends StatefulWidget {
   const CourseData({Key? key}) : super(key: key);
 

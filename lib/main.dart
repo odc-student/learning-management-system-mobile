@@ -36,12 +36,15 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (BuildContext context) => CoursDataCubit( DataCoursRepository())),
         BlocProvider(create: (BuildContext context) => AddCourseCubit( AddCourseRepository()) ),
         BlocProvider(create: (BuildContext context) => SignupCubit( SignupRepository()) ),
+        BlocProvider(create: (BuildContext context) => UserCubit( GetMeRepository()) ),
+        BlocProvider(create: (BuildContext context) => UpdateUserDataCubit( UpdateUserRepository()) ),
         BlocProvider(create: (BuildContext context) => SigninCubit( SigninRepository()) )
-    ],
+
+      ],
         child:  MaterialApp(
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigatorService.instance.globalKey,
-          home: authpage(),
+          home: OnborderListCourses(),
         ),),
     );
 
