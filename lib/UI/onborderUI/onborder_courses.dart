@@ -17,10 +17,8 @@ class _OnborderListCoursesState extends State<OnborderListCourses> {
     super.initState();
 
     Future.delayed(Duration(milliseconds: 600), () {
-
       setState(() {
         startAnimation = true;
-
       });
     });
 
@@ -28,21 +26,71 @@ class _OnborderListCoursesState extends State<OnborderListCourses> {
     final userdata = context.read<UserCubit>();
     userdata.fetchuserData();
     cubit.fetchCours();
-
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserCubit,UserDataSatate>(
-      builder: (BuildContext context, Object? state) {
-        if(state is InitUserDataSatate || state is LoadingUserDataSatate){
-          return Center(
-            child: const CircularProgressIndicator(),
-          );
-        }else if(state is ResponseUserDataSatate){
-          final useratt =state.user.userattribute[0];
+    return BlocBuilder<UserCubit, UserDataSatate>(
+        builder: (BuildContext context, Object? state) {
+      if (state is InitUserDataSatate || state is LoadingUserDataSatate) {
+        return Center(
+          child: const CircularProgressIndicator(),
+        );
+      } else if (state is ResponseUserDataSatate) {
+        final useratt = state.user.userattribute[0];
         return Scaffold(
             backgroundColor: Color(0xFF000000),
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: odc,
+              child: Icon(
+                Icons.add,
+                color: black,
+              ),
+              onPressed: () => AwesomeDialog(
+                context: context,
+                dialogType: DialogType.noHeader,
+                width: double.infinity,
+                buttonsBorderRadius: BorderRadius.all(
+                  Radius.circular(2),
+                ),
+                dismissOnTouchOutside: true,
+                dismissOnBackKeyPress: false,
+                onDismissCallback: (type) {},
+                headerAnimationLoop: false,
+                animType: AnimType.bottomSlide,
+                title: 'Add Course',
+                body: Container(
+                  margin: EdgeInsets.all(30),
+                  child: Column(
+                    children: [
+                      AnimatedTextField(
+                        label: 'Course Titile',
+                        suffix: Icon(Icons.title),
+                        textController: _titlecontrole,
+                      ),
+                      SizedBox(
+                        height: 3,
+                      ),
+                      AnimatedTextField(
+                        label: 'Course Description',
+                        suffix: Icon(Icons.message_outlined),
+                        textController: _descriptioncontrole,
+                      )
+                    ],
+                  ),
+                ),
+                showCloseIcon: true,
+                btnCancelOnPress: () {},
+                btnOkOnPress: () async {
+                  NavigatorService.instance
+                      .navigatetoReplacement(OnborderListCourses());
+
+                  context
+                      .read<AddCourseCubit>()
+                      .add(_titlecontrole.text, _descriptioncontrole.text);
+                },
+              ).show(),
+            ),
             drawer: NavBar(
               is_formateur: false,
               is_admin: true,
@@ -57,59 +105,6 @@ class _OnborderListCoursesState extends State<OnborderListCourses> {
                   Text(
                     'All Courses',
                     style: TextStyle(color: Color(0xFFFF7900)),
-                  ),
-                  Spacer(),
-                  InkWell(
-                    child: Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    ),
-                    onTap: () {
-                      AwesomeDialog(
-                        context: context,
-                        dialogType: DialogType.noHeader,
-                        width: double.infinity,
-                        buttonsBorderRadius: BorderRadius.all(
-                          Radius.circular(2),
-                        ),
-                        dismissOnTouchOutside: true,
-                        dismissOnBackKeyPress: false,
-                        onDismissCallback: (type) {},
-                        headerAnimationLoop: false,
-                        animType: AnimType.bottomSlide,
-                        title: 'Add Course',
-                        body: Container(
-                          margin: EdgeInsets.all(30),
-                          child: Column(
-                            children: [
-                              AnimatedTextField(
-                                label: 'Course Titile',
-                                suffix: Icon(Icons.title),
-                                textController: _titlecontrole,
-                              ),
-                              SizedBox(
-                                height: 3,
-                              ),
-                              AnimatedTextField(
-                                label: 'Course Description',
-                                suffix: Icon(Icons.message_outlined),
-                                textController: _descriptioncontrole,
-                              )
-                            ],
-                          ),
-                        ),
-                        showCloseIcon: true,
-                        btnCancelOnPress: () {},
-                        btnOkOnPress: () async {
-                          NavigatorService.instance
-                              .navigatetoReplacement(OnborderListCourses());
-
-                          context
-                              .read<AddCourseCubit>()
-                              .add(_titlecontrole.text, _descriptioncontrole.text);
-                        },
-                      ).show();
-                    },
                   )
                 ],
               ),
@@ -138,7 +133,8 @@ class _OnborderListCoursesState extends State<OnborderListCourses> {
                           var cour = courses[index];
 
                           return AnimatedContainer(
-                            duration: Duration(milliseconds: 700 + (index * 100)),
+                            duration:
+                                Duration(milliseconds: 700 + (index * 100)),
                             curve: Curves.easeInOut,
                             transform: Matrix4.translationValues(
                               startAnimation ? 0 : 500,
@@ -148,7 +144,8 @@ class _OnborderListCoursesState extends State<OnborderListCourses> {
                             child: ListTile(
                                 title: Container(
                               child: Padding(
-                                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 0, 10, 0),
                                 child: CourCard(
                                   id: cour.id ?? "",
                                   title: cour.title ?? "",
@@ -172,11 +169,24 @@ class _OnborderListCoursesState extends State<OnborderListCourses> {
                 return Center(child: Center(child: Text(state.toString())));
               },
             ));
-        }else if(state is ErrorUserDataSatate){print(state.message);
-        return Container(child: Center(
-          child: Text(state.message,style: TextStyle(fontSize: 10,color: Colors.white),),
-        ),);}return Container(child: Center(child: Text("you are hire",style: TextStyle(color: white),)),);
+      } else if (state is ErrorUserDataSatate) {
+        print(state.message);
+        return Container(
+          child: Center(
+            child: Text(
+              state.message,
+              style: TextStyle(fontSize: 10, color: Colors.white),
+            ),
+          ),
+        );
       }
-    );
+      return Container(
+        child: Center(
+            child: Text(
+          "you are hire",
+          style: TextStyle(color: white),
+        )),
+      );
+    });
   }
 }

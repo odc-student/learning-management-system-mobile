@@ -27,15 +27,20 @@ import 'dart:typed_data';
 import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart';
 
+
+
 part 'package:osltestcubit/ui/Listcourses.dart';
 part 'package:osltestcubit/ui/update_course.dart';
 part 'package:osltestcubit/ui/course.dart';
+
+part 'package:osltestcubit/ui/auth/AuthPage.dart';
+part 'package:osltestcubit/ui/auth/updateprofile/UpdateProfile.dart';
+part 'package:osltestcubit/ui/auth/signin/SignIn.dart';
+part 'package:osltestcubit/ui/auth/user/profile.dart';
+part 'package:osltestcubit/ui/auth/user/textstate.dart';
 part 'package:osltestcubit/utils/custem_textfaild/utils.dart';
 part 'package:osltestcubit/ui/onborderUI/onborder_courses.dart';
 part 'package:osltestcubit/utils/custem_textfaild/animated_textfield.dart';
-part 'package:osltestcubit/ui/auth/AuthPage.dart';
-part 'package:osltestcubit/ui/auth/signup/SignUp.dart';
-part 'package:osltestcubit/ui/auth/signin/SignIn.dart';
 
 part 'package:osltestcubit/variable/var.dart';
 

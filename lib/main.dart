@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
         child:  MaterialApp(
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigatorService.instance.globalKey,
-          home: OnborderListCourses(),
+          home: Profile(),
         ),),
     );
 

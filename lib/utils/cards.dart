@@ -131,7 +131,7 @@ class CourCard extends StatelessWidget {
                   showCloseIcon: true,
                   btnCancelOnPress: () {},
                   btnOkOnPress: () async {
-                    context.read<UpdateCourseDataCubit>().Update(
+                    context.read<UpdateUserDataCubit>().UpdateUser(
                         id,
                         "description",
                         _descriptioncontrole.text.isEmpty

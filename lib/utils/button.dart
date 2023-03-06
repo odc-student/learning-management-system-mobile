@@ -9,7 +9,7 @@ Container SigninupButton(BuildContext context,bool isLogin, Function onTap){
       child: ElevatedButton(onPressed: (){
         onTap();
       },
-        child: Text(isLogin ? 'Sign In' : 'Sign Up', style: const TextStyle(
+        child: Text(isLogin ? 'Sign In' : 'Save', style: const TextStyle(
             color: Colors.black, fontWeight: FontWeight.bold, fontSize:16),
         ),
         style: ButtonStyle(backgroundColor: MaterialStateProperty.resolveWith((states){
