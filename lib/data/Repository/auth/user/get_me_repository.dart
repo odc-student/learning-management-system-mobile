@@ -19,6 +19,8 @@ Future<userSucc> fetchuser()async{
     email = result.userattribute['email'];
     fullname = result.userattribute['fullName'];
     id =result.userattribute['_id'];
+    dateB = result.userattribute['dateOfBirth'];
+    PhoneN =result.userattribute['phoneNumber'];
 
 
     return result;

@@ -39,17 +39,22 @@ class NavBar extends StatelessWidget {
                   decoration: BoxDecoration(color: Colors.black),
                 ),
                 is_admin
-                    ? Container(
+                    ? Container(margin: EdgeInsets.only(left: 15),
                         child: Column(
                           children: [
                             ListTile(
-                              leading: const Icon(Icons.home),
-                              title: Text('About'),
+                              leading: const Icon(Icons.my_library_books_outlined),
+                              title: Text('List courses'),
                               textColor: Colors.white,
                               selectedColor: Color(0xFFFF7900),
                               iconColor: Color(0xFFFF7900),
-                              selected: true,
-                              onTap: () {},
+                              selected: index==0?true:false,
+                              onTap: () {
+                                index =0;
+                                NavigatorService.instance.navigatetoReplacement(Listcourses());
+
+
+                              },
                             ),
                             ListTile(
                               leading: Icon(Icons.menu_book_outlined),
@@ -60,32 +65,52 @@ class NavBar extends StatelessWidget {
                               onTap: () {},
                             ),
                             ListTile(
-                              leading: Icon(Icons.contact_support_outlined),
-                              title: Text('Contact'),
+                              leading: Icon(Icons.person_pin_outlined),
+                              title: Text('Profile'),
+                              textColor: Colors.white,
+                              selectedColor: Color(0xFFFF7900),
+                              iconColor: Color(0xFFFF7900),
+                              selected: index==1?true:false,
+                              onTap: () {
+                                index =1;
+
+                                NavigatorService.instance.navigatetoReplacement(Profile());
+                              },
+                            ),
+                            ListTile(
+                              leading: Icon(Icons.supervised_user_circle_outlined),
+                              title: Text('List User'),
+                              textColor: Colors.white,
+                              selectedColor: Color(0xFFFF7900),
+                              iconColor: Color(0xFFFF7900),
+                              onTap: () { index =2;
+
+                              NavigatorService.instance.navigatetoReplacement(Profile());
+                              },
+                            ),
+                            ListTile(
+                              leading: Icon(Icons.email_rounded),
+                              title: Text('Claim'),
                               textColor: Colors.white,
                               selectedColor: Color(0xFFFF7900),
                               iconColor: Color(0xFFFF7900),
                               onTap: () {},
                             ),
+                            ListTile(
+                              leading: Icon(Icons.bar_chart_outlined),
+                              title: Text('Tracking'),
+                              textColor: Colors.white,
+                              selectedColor: Color(0xFFFF7900),
+                              iconColor: Color(0xFFFF7900),
+                              onTap: () {},
+                            ),
+                            Container(margin: EdgeInsets.symmetric(horizontal: 20),
+                              child: Divider(color: white,),)
+                            ,
+
                             ListTile(
                               leading: Icon(Icons.settings),
                               title: Text('Setting'),
-                              textColor: Colors.white,
-                              selectedColor: Color(0xFFFF7900),
-                              iconColor: Color(0xFFFF7900),
-                              onTap: () {},
-                            ),
-                            ListTile(
-                              leading: Icon(Icons.person_add_alt_1_outlined),
-                              title: Text('Add Formateur'),
-                              textColor: Colors.white,
-                              selectedColor: Color(0xFFFF7900),
-                              iconColor: Color(0xFFFF7900),
-                              onTap: () {},
-                            ),
-                            ListTile(
-                              leading: Icon(Icons.person_remove_alt_1_outlined),
-                              title: Text('Remove User'),
                               textColor: Colors.white,
                               selectedColor: Color(0xFFFF7900),
                               iconColor: Color(0xFFFF7900),

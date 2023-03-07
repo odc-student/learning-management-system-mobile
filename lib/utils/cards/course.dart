@@ -28,64 +28,61 @@ class CourCard extends StatelessWidget {
             background: Container(
               margin: EdgeInsets.only(top: 20),
               decoration: BoxDecoration(
-                color: Colors.green,
+                color: black,
                 border: Border.all(width: 1),
                 borderRadius: BorderRadius.circular(15),
                 shape: BoxShape.rectangle,
               ),
               alignment: Alignment.centerLeft,
-              padding: EdgeInsets.only(right: 20.0),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+              padding: EdgeInsets.only(left: 11.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
                       Icons.edit,
-                      color: Colors.white,
+                      color: odc,
                     ),
                     SizedBox(
                       height: 3,
                     ),
                     Text(
                       "Edit",
-                      style: TextStyle(color: white),
+                      style: TextStyle(color: odc),
                     )
                   ],
                 ),
-              ),
+
             ),
             secondaryBackground: Container(
               margin: EdgeInsets.only(
                 top: 20,
               ),
               decoration: BoxDecoration(
-                color: Colors.red,
+                color: black,
                 border: Border.all(width: 1),
                 borderRadius: BorderRadius.circular(15),
                 shape: BoxShape.rectangle,
               ),
               alignment: Alignment.centerRight,
-              padding: EdgeInsets.only(left: 20.0),
-              child: Padding(
-                padding: const EdgeInsets.only(right: 8.0),
+              padding: EdgeInsets.only(right: 11.0),
+
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
                       Icons.delete,
-                      color: Colors.white,
+                      color: odc,
                     ),
                     SizedBox(
                       height: 3,
                     ),
                     Text(
                       "Delete",
-                      style: TextStyle(color: white),
+                      style: TextStyle(color: odc),
                     )
                   ],
                 ),
-              ),
+
             ),
             onDismissed: (direction) {
               if (direction == DismissDirection.startToEnd) {
@@ -131,7 +128,7 @@ class CourCard extends StatelessWidget {
                   showCloseIcon: true,
                   btnCancelOnPress: () {},
                   btnOkOnPress: () async {
-                    context.read<UpdateUserDataCubit>().UpdateUser(
+                    context.read<UpdateCourseDataCubit>().Update(
                         id,
                         "description",
                         _descriptioncontrole.text.isEmpty
@@ -185,45 +182,42 @@ class CourCard extends StatelessWidget {
                   Container(
                     width: double.infinity,
                     margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                    padding: EdgeInsets.only(bottom: 10),
+                    padding: EdgeInsets.only(top: 18.0, left: 10,bottom: 10),
                     decoration: BoxDecoration(
                       border: Border.all(color: Color(0xFFFF7900), width: 1),
                       borderRadius: BorderRadius.circular(15),
                       shape: BoxShape.rectangle,
                     ),
-                    child: Padding(
-                      padding:
-                          const EdgeInsets.only(top: 18.0, left: 10, bottom: 0),
-                      child: Column(
-                        children: [
-                          Text(
-                            Description,
-                            style: TextStyle(color: Color(0xFFFFFFFF)),
-                          ),
-                          Container(
-                              margin: EdgeInsets.only(
-                                  left: 10, right: 10, top: 10, bottom: 0),
-                              child: ClipRRect(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(50)),
-                                child: FAProgressBar(
-                                  backgroundColor: Color(0xBDFFFFFF),
-                                  currentValue: active_sprint.toDouble(),
-                                  displayText: '%',
-                                  progressGradient: LinearGradient(colors: [
-                                    Color(0xFFFF7900),
-                                    Colors.deepOrange,
-                                    Color(0xFFFF4D00)
-                                  ]),
-                                  direction: Axis.horizontal,
-                                  verticalDirection: VerticalDirection.up,
-                                  formatValueFixed: 2,
-                                  animatedDuration: Duration(
-                                      milliseconds: 40 * active_sprint.toInt()),
-                                ),
-                              )),
-                        ],
-                      ),
+                    child: Column(
+                      children: [
+                        Text(
+                          Description,
+                          style: TextStyle(color: Color(0xFFFFFFFF)),
+                        ),
+                        Container(
+                            margin: EdgeInsets.only(
+                                left: 10, right: 10, top: 10, bottom: 0),
+                            child: ClipRRect(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(50)),
+                              child: FAProgressBar(
+                                backgroundColor: Color(0xBDFFFFFF),
+                                currentValue: active_sprint.toDouble(),
+                                displayText: '%',
+                                displayTextStyle: TextStyle(),
+                                progressGradient: LinearGradient(colors: [
+                                  Color(0xFFFF7900),
+                                  Colors.deepOrange,
+                                  Color(0xFFFF4D00)
+                                ]),
+                                direction: Axis.horizontal,
+                                verticalDirection: VerticalDirection.up,
+                                formatValueFixed: 2,
+                                animatedDuration: Duration(
+                                    milliseconds: 40 * active_sprint.toInt()),
+                              ),
+                            )),
+                      ],
                     ),
                   ),
                   Positioned(

@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (BuildContext context) => SignupCubit( SignupRepository()) ),
         BlocProvider(create: (BuildContext context) => UserCubit( GetMeRepository()) ),
         BlocProvider(create: (BuildContext context) => UpdateUserDataCubit( UpdateUserRepository()) ),
+        BlocProvider(create: (BuildContext context) => AllUsersCubit( UsersRepository()) ),
         BlocProvider(create: (BuildContext context) => SigninCubit( SigninRepository()) )
 
       ],

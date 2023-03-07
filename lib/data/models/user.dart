@@ -16,7 +16,7 @@ class user {
       id: json['_id'] as String?,
       email: json['email'] as String?,
       pwd: json['password'] as String?,
-      fullname: json['FullName'] as String?,
+      fullname: json['fullName'] as String?,
     );
   }
 }
@@ -51,6 +51,24 @@ class userSucc {
   factory userSucc.fromJson(json){
     return userSucc(success: json['success'],
         userattribute:json['user']
+    );
+
+  }
+}
+class alluserSucc {
+  final bool success;
+  final List<user> userattribute;
+
+  alluserSucc({
+    required this.success,
+    required this.userattribute,
+  });
+
+  factory alluserSucc.fromJson(json){
+    return alluserSucc(success: json['success'],
+        userattribute:List<user>.from((json['user'] as List<dynamic>)
+            .map((e) => user.fromJson(e))).toList()
+
     );
 
   }
