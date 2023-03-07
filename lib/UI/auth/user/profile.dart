@@ -12,18 +12,10 @@ class _ProfileState extends State<Profile> {
   bool is_edit = false;
 
   @override
-  void initState() {
-    super.initState();
-
-    final userdata = context.read<UserCubit>();
-    userdata.fetchuserData();
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: black,
-      body: BlocBuilder<UserCubit, UserDataSatate>(
+    return  BlocBuilder<UserCubit, UserDataSatate>(
           builder: (BuildContext context, Object? state) {
         if (state is InitUserDataSatate || state is LoadingUserDataSatate) {
           return Center(
@@ -47,20 +39,19 @@ class _ProfileState extends State<Profile> {
                           height: 40,
                           width: 40,
                           decoration: BoxDecoration(
-                              color:is_edit?Colors.green: odc,
+                              color: black,
                               borderRadius: BorderRadius.circular(50)),
                           child: IconButton(
                             icon: Icon(
                              is_edit?Icons.person_pin_outlined:Icons.edit_outlined,
                               size: 20,
                             ),
-                            color:is_edit?white: black,
+                            color: odc,
                             onPressed: () {
                               setState(() {
                                 is_edit = !is_edit;
                               });
 
-                              print("$is_edit");
                             },
                           ),
                         ))
@@ -109,7 +100,6 @@ class _ProfileState extends State<Profile> {
           );
         }
         return Text('');
-      }),
-    );
+      });
   }
 }
