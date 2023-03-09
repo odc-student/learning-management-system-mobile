@@ -18,7 +18,7 @@ class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        backgroundColor: Colors.black,
+        backgroundColor: black,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -37,7 +37,7 @@ class NavBar extends StatelessWidget {
                             ),
                           ),
                         ),*/
-              decoration: BoxDecoration(color: Colors.black),
+              decoration: BoxDecoration(color: black),
             ),
             isAdmin
                 ? Container(
@@ -47,69 +47,69 @@ class NavBar extends StatelessWidget {
                         ListTile(
                           leading: const Icon(Icons.my_library_books_outlined),
                           title: Text('List courses'),
-                          textColor: Colors.white,
-                          selectedColor: Color(0xFFFF7900),
-                          iconColor: Color(0xFFFF7900),
+                          textColor: white,
+                          selectedColor: odc,
+                          iconColor: odc,
                           selected: index == 0 ? true : false,
                           onTap: () {
                             appBarTitle = 'All Courses';
                             index = 0;
                             NavigatorService.instance
-                                .navigateToReplacement(ListCourses());
+                                .navigateToReplacement(HomeScreen());
                           },
                         ),
                         ListTile(
                           leading: Icon(Icons.menu_book_outlined),
                           title: Text('Favorites'),
-                          textColor: Colors.white,
-                          selectedColor: Color(0xFFFF7900),
-                          iconColor: Color(0xFFFF7900),
+                          textColor: white,
+                          selectedColor: odc,
+                          iconColor: odc,
                           onTap: () {},
                         ),
                         ListTile(
                           leading: Icon(Icons.person_pin_outlined),
                           title: Text('Profile'),
-                          textColor: Colors.white,
-                          selectedColor: Color(0xFFFF7900),
-                          iconColor: Color(0xFFFF7900),
+                          textColor: white,
+                          selectedColor: odc,
+                          iconColor: odc,
                           selected: index == 1 ? true : false,
                           onTap: () {
                             appBarTitle = 'Profile';
                             index = 1;
 
                             NavigatorService.instance
-                                .navigateToReplacement(Profile());
+                                .navigateToReplacement(HomeScreen());
                           },
                         ),
                         ListTile(
                           leading: Icon(Icons.supervised_user_circle_outlined),
                           title: Text('List User'),
-                          textColor: Colors.white,
-                          selectedColor: Color(0xFFFF7900),
-                          iconColor: Color(0xFFFF7900),
+                          textColor: white,
+                          selectedColor: odc,
+                          iconColor: odc,
                           selected: index == 2 ? true : false,
                           onTap: () {
                             index = 2;
                             appBarTitle = 'All Users';
 
                             NavigatorService.instance
-                                .navigateToReplacement(Profile());
+                                .navigateToReplacement(HomeScreen());
                           },
                         ),
                         ListTile(
                           leading: Icon(Icons.email_rounded),
                           title: Text('Claim'),
-                          textColor: Colors.white,
-                          selectedColor: Color(0xFFFF7900),
-                          iconColor: Color(0xFFFF7900),
+                          textColor: white,
+                          selectedColor: odc,
+                          iconColor: odc,
                           onTap: () {},
                         ),
                         ListTile(
                           leading: Icon(Icons.bar_chart_outlined),
                           title: Text('Tracking'),
-                          textColor: Colors.white,
-                          selectedColor: Color(0xFFFF7900),
-                          iconColor: Color(0xFFFF7900),
+                          textColor: white,
+                          selectedColor: odc,
+                          iconColor: odc,
                           onTap: () {},
                         ),
                         Container(
@@ -121,17 +121,17 @@ class NavBar extends StatelessWidget {
                         ListTile(
                           leading: Icon(Icons.settings),
                           title: Text('Setting'),
-                          textColor: Colors.white,
-                          selectedColor: Color(0xFFFF7900),
-                          iconColor: Color(0xFFFF7900),
+                          textColor: white,
+                          selectedColor: odc,
+                          iconColor: odc,
                           onTap: () {},
                         ),
                         ListTile(
                           leading: Icon(Icons.logout),
                           title: Text('Logout'),
-                          textColor: Colors.white,
-                          selectedColor: Color(0xFFFF7900),
-                          iconColor: Color(0xFFFF7900),
+                          textColor: white,
+                          selectedColor: odc,
+                          iconColor: odc,
                           onTap: () {},
                         ),
                       ],
@@ -144,42 +144,42 @@ class NavBar extends StatelessWidget {
                             ListTile(
                               leading: Icon(Icons.home),
                               title: Text('About'),
-                              textColor: Colors.white,
-                              selectedColor: Color(0xFFFF7900),
-                              iconColor: Color(0xFFFF7900),
+                              textColor: white,
+                              selectedColor: odc,
+                              iconColor: odc,
                               selected: true,
                               onTap: () {},
                             ),
                             ListTile(
                               leading: Icon(Icons.menu_book_outlined),
                               title: Text('Course'),
-                              textColor: Colors.white,
-                              selectedColor: Color(0xFFFF7900),
-                              iconColor: Color(0xFFFF7900),
+                              textColor: white,
+                              selectedColor: odc,
+                              iconColor: odc,
                               onTap: () {},
                             ),
                             ListTile(
                               leading: Icon(Icons.contact_support_outlined),
                               title: Text('Contact'),
-                              textColor: Colors.white,
-                              selectedColor: Color(0xFFFF7900),
-                              iconColor: Color(0xFFFF7900),
+                              textColor: white,
+                              selectedColor: odc,
+                              iconColor: odc,
                               onTap: () {},
                             ),
                             ListTile(
                               leading: Icon(Icons.settings),
                               title: Text('Setting'),
-                              textColor: Colors.white,
-                              selectedColor: Color(0xFFFF7900),
-                              iconColor: Color(0xFFFF7900),
+                              textColor: white,
+                              selectedColor: odc,
+                              iconColor: odc,
                               onTap: () {},
                             ),
                             ListTile(
                               leading: Icon(Icons.logout),
                               title: Text('Logout'),
-                              textColor: Colors.white,
-                              selectedColor: Color(0xFFFF7900),
-                              iconColor: Color(0xFFFF7900),
+                              textColor: white,
+                              selectedColor: odc,
+                              iconColor: odc,
                               onTap: () {},
                             ),
                           ],
@@ -192,34 +192,34 @@ class NavBar extends StatelessWidget {
                                 ListTile(
                                   leading: Icon(Icons.home),
                                   title: Text('About'),
-                                  textColor: Colors.white,
-                                  selectedColor: Color(0xFFFF7900),
-                                  iconColor: Color(0xFFFF7900),
+                                  textColor: white,
+                                  selectedColor: odc,
+                                  iconColor: odc,
                                   selected: true,
                                   onTap: () {},
                                 ),
                                 ListTile(
                                   leading: Icon(Icons.menu_book_outlined),
                                   title: Text('Favorites'),
-                                  textColor: Colors.white,
-                                  selectedColor: Color(0xFFFF7900),
-                                  iconColor: Color(0xFFFF7900),
+                                  textColor: white,
+                                  selectedColor: odc,
+                                  iconColor: odc,
                                   onTap: () {},
                                 ),
                                 ListTile(
                                   leading: Icon(Icons.settings),
                                   title: Text('Setting'),
-                                  textColor: Colors.white,
-                                  selectedColor: Color(0xFFFF7900),
-                                  iconColor: Color(0xFFFF7900),
+                                  textColor: white,
+                                  selectedColor: odc,
+                                  iconColor: odc,
                                   onTap: () {},
                                 ),
                                 ListTile(
                                   leading: Icon(Icons.logout),
                                   title: Text('Logout'),
-                                  textColor: Colors.white,
-                                  selectedColor: Color(0xFFFF7900),
-                                  iconColor: Color(0xFFFF7900),
+                                  textColor: white,
+                                  selectedColor: odc,
+                                  iconColor: odc,
                                   onTap: () {},
                                 ),
                               ],
@@ -235,7 +235,7 @@ class NavBar extends StatelessWidget {
                                   children: [
                                     Text(
                                       "Powered by :",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: white),
                                     ),
                                     Image.asset(
                                       "assets/images/logo.png",

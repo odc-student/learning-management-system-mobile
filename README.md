@@ -57,84 +57,84 @@ A project ODC.
 │   │   └──[📂update_course](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/course/update_course) </br>
 │   │       │───[update_course_cubit.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/course/update_course/update_course_cubit.dart) </br>
 │   │       └───[update_courses_state.dart](https://github.com/odc-student/learning-management-system-mobile/tree/feat-1/lib/cubit/course/update_courseupdate_course_state.dart) </br>
-│   │───[📂instructor]
-│   │───[📂onboarder]
-│   │───[📂quiz]
-│   │───[📂reclamation]
-│   │───[📂sprint]
-│   │   │───[📂all_sprint]
-│   │   │    │───[all_sprint_cubit.dart]
-│   │   │    └───[all_sprint_state.dart]
-│   │   └───[📂get_data_from_sprint]
-│   │───[📂student]
-│   └───[📂user]
-│        │───[📂delete]
-│        │───[📂get_all_users]
-│        │───[📂get_user]
-│        │───[📂profil]
-│        └───[📂update]
-│───[📂data]
-│   │───[📂models]
-│   │   │───[cour.dart]
-│   │   │───[sprint.dart]
-│   │   └───[user.dart]
-│   │───[📂repository]
-│   │   │───[📂auth]
-│   │   │    │───[📂signin]
-│   │   │    │    └───[signin_repository.dart]
-│   │   │    │───[📂signup]
-│   │   │    │   └───[signup_repository.dart]
-│   │   │    └───[📂user]
-│   │   │        └───[all_users_repository.dart]
-│   │   │        └───[delete_user_repository.dart]
-│   │   │        └───[get_me_repository.dart]
-│   │   │        └───[get_user_repository.dart]
-│   │   │        └───[update_user_repository.dart]
-│   │   │───[📂course]
-│   │   │   │──[add_course_repository.dart]
-│   │   │   │──[delete_course_repository.dart]
-│   │   │   │──[get_all_course_repository.dart]
-│   │   │   └──[update_course_repository.dart]
-│   │   │───[📂instructor]
-│   │   │───[📂onboarder]
-│   │   │───[📂quiz]
-│   │   │───[📂reclamation]
-│   │   │───[📂sprint]
-│   │   │   └───[all_sprint_repository.dart]
-│   │   └───[📂student]
-│──[─📂ui]
-│   │───[📂auth]
-│   │   │───[📂signin]
-│   │   │   └───[SignIn.dart]
-│   │   │───[📂signup]
-│   │   │   └───[SignUp.dart]
-│   │   │───[📂signup]
-│   │   │   └───[SignUp.dart]
-│   │   │───[📂user]
-│   │   │   └───[profile.dart]
-│   │   └───[AuthPage.dart]
-│   │───[📂onborderUI]
-│   │   └───[onborder_courses.dart]
-│   │───[course.dart]
-│   │───[Listcourses.dart]
-│   └───[update_course.dart]
-│───[📂utils]
-│   │───[📂cards]
-│   │    │──[course.dart]
-│   │    │──[sprint.dart]
-│   │    └──[user.dart]
-│   │───[📂custem_textfaild]
-│   │    │──[animated_textfield.dart]
-│   │    └──[utils.dart]
-│   │───[button.dart]
-│   │───[cards.dart]
-│   │───[coursecard.dart]
-│   │───[ImagePickerbase64.dart]
-│   │───[navbar.dart]
-│   │───[navigator_service.dart]
-│   └───[textfaild.dart]
-└───[📂variable]
-    │───[imports.dart]  // all import is here
-    │───[url.dart]     // all import is here
-    └───[var.dart]      // all const is here
+│   │───[📂instructor]</br>
+│   │───[📂onboarder]</br>
+│   │───[📂quiz]</br>
+│   │───[📂reclamation]</br>
+│   │───[📂sprint]</br>
+│   │   │───[📂all_sprint]</br>
+│   │   │    │───[all_sprint_cubit.dart]</br>
+│   │   │    └───[all_sprint_state.dart]</br>
+│   │   └───[📂get_data_from_sprint]</br>
+│   │───[📂student]</br>
+│   └───[📂user]</br>
+│        │───[📂delete]</br>
+│        │───[📂get_all_users]</br>
+│        │───[📂get_user]</br>
+│        │───[📂profile]</br>
+│        └───[📂update]</br>
+│───[📂data]</br>
+│   │───[📂models]</br>
+│   │   │───[cour.dart]</br>
+│   │   │───[sprint.dart]</br>
+│   │   └───[user.dart]</br>
+│   │───[📂repository]</br>
+│   │   │───[📂auth]</br>
+│   │   │    │───[📂signin]</br>
+│   │   │    │    └───[signin_repository.dart]</br>
+│   │   │    │───[📂signup]</br>
+│   │   │    │   └───[signup_repository.dart]</br>
+│   │   │    └───[📂user]</br>
+│   │   │        └───[all_users_repository.dart]</br>
+│   │   │        └───[delete_user_repository.dart]</br>
+│   │   │        └───[get_me_repository.dart]</br>
+│   │   │        └───[get_user_repository.dart]</br>
+│   │   │        └───[update_user_repository.dart]</br>
+│   │   │───[📂course]</br>
+│   │   │   │──[add_course_repository.dart]</br>
+│   │   │   │──[delete_course_repository.dart]</br>
+│   │   │   │──[get_all_course_repository.dart]</br>
+│   │   │   └──[update_course_repository.dart]</br>
+│   │   │───[📂instructor]</br>
+│   │   │───[📂onboarder]</br>
+│   │   │───[📂quiz]</br>
+│   │   │───[📂reclamation]</br>
+│   │   │───[📂sprint]</br>
+│   │   │   └───[all_sprint_repository.dart]</br>
+│   │   └───[📂student]</br>
+│──[─📂ui]</br>
+│   │───[📂auth]</br>
+│   │   │───[📂signin]</br>
+│   │   │   └───[SignIn.dart]</br>
+│   │   │───[📂signup]</br>
+│   │   │   └───[SignUp.dart]</br>
+│   │   │───[📂signup]</br>
+│   │   │   └───[SignUp.dart]</br>
+│   │   │───[📂user]</br>
+│   │   │   └───[profile.dart]</br>
+│   │   └───[AuthPage.dart]</br>
+│   │───[📂onborderUI]</br>
+│   │   └───[onborder_courses.dart]</br>
+│   │───[course.dart]</br>
+│   │───[Listcourses.dart]</br>
+│   └───[update_course.dart]</br>
+│───[📂utils]</br>
+│   │───[📂cards]</br>
+│   │    │──[course.dart]</br>
+│   │    │──[sprint.dart]</br>
+│   │    └──[user.dart]</br>
+│   │───[📂custem_textfaild]</br>
+│   │    │──[animated_textfield.dart]v
+│   │    └──[utils.dart]</br>
+│   │───[button.dart]</br>
+│   │───[cards.dart]</br>
+│   │───[coursecard.dart]</br>
+│   │───[ImagePickerbase64.dart]</br>
+│   │───[navbar.dart]</br>
+│   │───[navigator_service.dart]</br>
+│   └───[textfaild.dart]</br>
+└───[📂variable]</br>
+    │───[imports.dart]  // all import is here </br>
+    │───[url.dart]     // all import is here  </br>
+    └───[var.dart]      // all const is here  </br>
 

@@ -75,28 +75,28 @@ class _ProfileState extends State<Profile> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Profiletext("Full Name :", fullName),
+                          profileText("Full Name :", fullName),
                           Divider(
                             color: white,
                           ),
                           SizedBox(
                             height: 5,
                           ),
-                          Profiletext("Email", email),
+                          profileText("Email", email),
                           Divider(
                             color: white,
                           ),
                           SizedBox(
                             height: 5,
                           ),
-                          Profiletext("Date of Birth", dateB),
+                          profileText("Date of Birth", dateB),
                           Divider(
                             color: white,
                           ),
                           SizedBox(
                             height: 5,
                           ),
-                          Profiletext("Phone Number", PhoneN),
+                          profileText("Phone Number", PhoneN),
                           Divider(
                             color: white,
                           ),
@@ -111,7 +111,7 @@ class _ProfileState extends State<Profile> {
           child: Center(
             child: Text(
               state.message,
-              style: TextStyle(fontSize: 10, color: Colors.white),
+              style: TextStyle(fontSize: 10, color: white),
             ),
           ),
         );
