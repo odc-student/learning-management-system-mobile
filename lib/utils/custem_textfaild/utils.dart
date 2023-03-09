@@ -6,7 +6,6 @@ class Utils {
     Path originalPath,
     double animationPercent,
   ) {
-    // ComputeMetrics can only be iterated once!
     final totalLength = originalPath
         .computeMetrics()
         .fold(0.0, (double prev, ui.PathMetric metric) => prev + metric.length);
@@ -22,7 +21,7 @@ class Utils {
   ) {
     var currentLength = 0.0;
 
-    final path = new Path();
+    final path = Path();
 
     var metricsIterator = originalPath.computeMetrics().iterator;
 

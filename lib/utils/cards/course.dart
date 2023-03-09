@@ -1,25 +1,33 @@
 part of 'package:osltestcubit/variable/imports.dart';
 
-class CourCard extends StatelessWidget {
-  TextEditingController _titlecontrole = TextEditingController();
-  TextEditingController _descriptioncontrole = TextEditingController();
+class CourseCard extends StatelessWidget {
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
 
-  CourCard(
+  CourseCard(
       {Key? key,
       required this.id,
       required this.title,
-      required this.Description,
-      required this.active_sprint,
+      required this.description,
+      required this.activeSprint,
+      required this.isVisible,
+      required this.sprintList,
       required this.index})
       : super(key: key);
   final String title;
-  final String Description;
-  final num active_sprint;
+  final String description;
+  final num activeSprint;
+  final bool isVisible;
   final int index;
   final String id;
+  final List sprintList;
 
   @override
   Widget build(BuildContext context) {
+    final double newValue = double.parse(activeSprint.toString());
+    late ValueNotifier<double> valueNotifier;
+    valueNotifier = ValueNotifier(0.0);
+    valueNotifier.value = newValue;
     return Stack(
       children: [
         Container(
@@ -35,23 +43,22 @@ class CourCard extends StatelessWidget {
               ),
               alignment: Alignment.centerLeft,
               padding: EdgeInsets.only(left: 11.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.edit,
-                      color: odc,
-                    ),
-                    SizedBox(
-                      height: 3,
-                    ),
-                    Text(
-                      "Edit",
-                      style: TextStyle(color: odc),
-                    )
-                  ],
-                ),
-
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.edit,
+                    color: odc,
+                  ),
+                  SizedBox(
+                    height: 3,
+                  ),
+                  Text(
+                    "Edit",
+                    style: TextStyle(color: odc),
+                  )
+                ],
+              ),
             ),
             secondaryBackground: Container(
               margin: EdgeInsets.only(
@@ -65,24 +72,22 @@ class CourCard extends StatelessWidget {
               ),
               alignment: Alignment.centerRight,
               padding: EdgeInsets.only(right: 11.0),
-
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.delete,
-                      color: odc,
-                    ),
-                    SizedBox(
-                      height: 3,
-                    ),
-                    Text(
-                      "Delete",
-                      style: TextStyle(color: odc),
-                    )
-                  ],
-                ),
-
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.delete,
+                    color: odc,
+                  ),
+                  SizedBox(
+                    height: 3,
+                  ),
+                  Text(
+                    "Delete",
+                    style: TextStyle(color: odc),
+                  )
+                ],
+              ),
             ),
             onDismissed: (direction) {
               if (direction == DismissDirection.startToEnd) {
@@ -98,7 +103,7 @@ class CourCard extends StatelessWidget {
                   onDismissCallback: (type) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text('Dismised '),
+                        content: Text('Dismissed '),
                       ),
                     );
                   },
@@ -112,15 +117,15 @@ class CourCard extends StatelessWidget {
                         AnimatedTextField(
                           label: title,
                           suffix: Icon(Icons.title),
-                          textController: _titlecontrole,
+                          textController: _titleController,
                         ),
                         SizedBox(
                           height: 3,
                         ),
                         AnimatedTextField(
-                          label: Description,
+                          label: description,
                           suffix: Icon(Icons.message_outlined),
-                          textController: _descriptioncontrole,
+                          textController: _descriptionController,
                         )
                       ],
                     ),
@@ -128,19 +133,18 @@ class CourCard extends StatelessWidget {
                   showCloseIcon: true,
                   btnCancelOnPress: () {},
                   btnOkOnPress: () async {
-                    context.read<UpdateCourseDataCubit>().Update(
+                    context.read<UpdateCourseDataCubit>().update(
                         id,
                         "description",
-                        _descriptioncontrole.text.isEmpty
-                            ? Description
-                            : _descriptioncontrole.text);
-                    context.read<UpdateCourseDataCubit>().Update(
+                        _descriptionController.text.isEmpty
+                            ? description
+                            : _descriptionController.text);
+                    context.read<UpdateCourseDataCubit>().update(
                         id,
                         "titre",
-                        _titlecontrole.text.isEmpty
+                        _titleController.text.isEmpty
                             ? title
-                            : _titlecontrole.text);
-
+                            : _titleController.text);
                   },
                 ).show();
               } else {
@@ -160,29 +164,29 @@ class CourCard extends StatelessWidget {
                   body: Container(
                     margin: EdgeInsets.all(30),
                     child: Text("You want to delete $title"),
-
                   ),
                   showCloseIcon: true,
                   btnCancelOnPress: () {},
-                  btnOkOnPress: () async {context.read<DeletecourseCubit>().delete(id);
-
+                  btnOkOnPress: () async {
+                    context.read<DeleteCourseCubit>().delete(id);
                   },
                 ).show();
-
-
               }
             },
             child: InkWell(
                 radius: 20,
                 onTap: () {
-                  NavigatorService.instance.navigateTo(MyHomePage(link: Description));
-
+                  NavigatorService.instance.navigateTo(ListSprints(
+                    list: sprintList,
+                    title: title,
+                  ));
                 },
                 child: Stack(children: <Widget>[
                   Container(
                     width: double.infinity,
                     margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                    padding: EdgeInsets.only(top: 18.0, left: 10,bottom: 10),
+                    padding: EdgeInsets.only(
+                        top: 18.0, left: 10, bottom: 5, right: 10),
                     decoration: BoxDecoration(
                       border: Border.all(color: Color(0xFFFF7900), width: 1),
                       borderRadius: BorderRadius.circular(15),
@@ -190,33 +194,62 @@ class CourCard extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        Text(
-                          Description,
-                          style: TextStyle(color: Color(0xFFFFFFFF)),
-                        ),
-                        Container(
-                            margin: EdgeInsets.only(
-                                left: 10, right: 10, top: 10, bottom: 0),
-                            child: ClipRRect(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(50)),
-                              child: FAProgressBar(
-                                backgroundColor: Color(0xBDFFFFFF),
-                                currentValue: active_sprint.toDouble(),
-                                displayText: '%',
-                                displayTextStyle: TextStyle(),
-                                progressGradient: LinearGradient(colors: [
-                                  Color(0xFFFF7900),
-                                  Colors.deepOrange,
-                                  Color(0xFFFF4D00)
-                                ]),
-                                direction: Axis.horizontal,
-                                verticalDirection: VerticalDirection.up,
-                                formatValueFixed: 2,
-                                animatedDuration: Duration(
-                                    milliseconds: 40 * active_sprint.toInt()),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 8.0, left: 10),
+                              child: Text(
+                                description,
+                                style: TextStyle(color: Color(0xFFFFFFFF)),
                               ),
-                            )),
+                            ),
+                            Spacer(),
+                            Container(
+                              width: 40,
+                              height: 105,
+                              child: Column(
+                                children: [
+                                  InkWell(
+                                    child: isVisible
+                                        ? Icon(
+                                            Icons.visibility_outlined,
+                                            color: odc,
+                                          )
+                                        : Icon(
+                                            Icons.visibility_off_outlined,
+                                            color: odc,
+                                          ),
+                                    onTap: () {
+                                      context
+                                          .read<UpdateCourseDataCubit>()
+                                          .update(
+                                              id, "is_visible", !isVisible);
+                                    },
+                                  ),
+                                  SimpleCircularProgressBar(
+                                    size: 80,
+                                    backColor: white,
+                                    valueNotifier: valueNotifier,
+                                    maxValue: 100,
+                                    backStrokeWidth: 5,
+                                    progressStrokeWidth: 5,
+                                    progressColors: const [odc],
+                                    fullProgressColor: odc,
+                                    mergeMode: true,
+                                    onGetText: (double value) {
+                                      return Text(
+                                        ' ${value.toInt()}% ',
+                                        style: TextStyle(color: white),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ],
                     ),
                   ),

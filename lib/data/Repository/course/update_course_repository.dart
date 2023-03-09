@@ -1,12 +1,9 @@
-
 part of 'package:osltestcubit/variable/imports.dart';
-
 
 class UpdateCourseDataRepository {
   static const url = urlCourse;
 
-  Future<bool> update(String id , title,value) async {
-
+  Future<bool> update(String id, title, value) async {
     final uri = Uri.parse("$url/$id");
     final response = await http.put(
       uri,
@@ -18,9 +15,9 @@ class UpdateCourseDataRepository {
       }),
     );
     if (response.statusCode == 200) {
-
-      return true ;
-    }else{
+      NavigatorService.instance.navigateToReplacement(HomeScreen());
+      return true;
+    } else {
       throw "Something went wrong code ${response.statusCode}";
     }
   }

@@ -1,27 +1,27 @@
 part of 'package:osltestcubit/variable/imports.dart';
 
 class UserCard extends StatelessWidget {
-  TextEditingController _titlecontrole = TextEditingController();
-  TextEditingController _descriptioncontrole = TextEditingController();
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
 
   UserCard(
       {Key? key,
       required this.id,
-      required this.fullname,
+      required this.fullName,
       required this.email,
-      required this.active_sprint,
+      required this.activeSprint,
       required this.index})
       : super(key: key);
-  final String fullname;
+  final String fullName;
   final String email;
-  final num active_sprint;
+  final num activeSprint;
   final int index;
   final String id;
 
   @override
   Widget build(BuildContext context) {
-    final double newValue = double.parse("$active_sprint");
-   late  ValueNotifier<double> valueNotifier;
+    final double newValue = double.parse("$activeSprint");
+    late ValueNotifier<double> valueNotifier;
     valueNotifier = ValueNotifier(0.0);
     valueNotifier.value = newValue;
     return Stack(
@@ -99,7 +99,7 @@ class UserCard extends StatelessWidget {
                 onDismissCallback: (type) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('Dismised '),
+                      content: Text('Dismissed '),
                     ),
                   );
                 },
@@ -111,9 +111,9 @@ class UserCard extends StatelessWidget {
                   child: Column(
                     children: [
                       AnimatedTextField(
-                        label: fullname,
+                        label: fullName,
                         suffix: Icon(Icons.title),
-                        textController: _titlecontrole,
+                        textController: _titleController,
                       ),
                       SizedBox(
                         height: 3,
@@ -121,7 +121,7 @@ class UserCard extends StatelessWidget {
                       AnimatedTextField(
                         label: email,
                         suffix: Icon(Icons.message_outlined),
-                        textController: _descriptioncontrole,
+                        textController: _descriptionController,
                       )
                     ],
                   ),
@@ -129,18 +129,18 @@ class UserCard extends StatelessWidget {
                 showCloseIcon: true,
                 btnCancelOnPress: () {},
                 btnOkOnPress: () async {
-                  context.read<UpdateUserDataCubit>().UpdateUser(
+                  context.read<UpdateUserDataCubit>().updateUser(
                       id,
                       "email",
-                      _descriptioncontrole.text.isEmpty
+                      _descriptionController.text.isEmpty
                           ? email
-                          : _descriptioncontrole.text);
-                  context.read<UpdateCourseDataCubit>().Update(
+                          : _descriptionController.text);
+                  context.read<UpdateCourseDataCubit>().update(
                       id,
                       "fullName",
-                      _titlecontrole.text.isEmpty
-                          ? fullname
-                          : _titlecontrole.text);
+                      _titleController.text.isEmpty
+                          ? fullName
+                          : _titleController.text);
                 },
               ).show();
             } else {
@@ -159,12 +159,12 @@ class UserCard extends StatelessWidget {
                 title: 'Add Course',
                 body: Container(
                   margin: EdgeInsets.all(30),
-                  child: Text("You want to delete $fullname"),
+                  child: Text("You want to delete $fullName"),
                 ),
                 showCloseIcon: true,
                 btnCancelOnPress: () {},
                 btnOkOnPress: () async {
-                  context.read<DeletecourseCubit>().delete(id);
+                  context.read<DeleteUserCubit>().delete(id);
                 },
               ).show();
             }
@@ -172,30 +172,36 @@ class UserCard extends StatelessWidget {
           child: InkWell(
             radius: 20,
             onTap: () {
-              NavigatorService.instance.navigateTo(MyHomePage(link: email));
+              NavigatorService.instance.navigateTo(EveryUserData(
+                id: id,
+              ));
             },
             child: Container(
               width: double.infinity,
               margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-              padding: EdgeInsets.only(left: 10,top: 15,right: 10),
+              padding: EdgeInsets.only(left: 10, top: 15, right: 10),
               decoration: BoxDecoration(
                 border: Border.all(color: Color(0xFFFF7900), width: 1),
                 borderRadius: BorderRadius.circular(15),
                 shape: BoxShape.rectangle,
               ),
-              child: Row(crossAxisAlignment: CrossAxisAlignment.start,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Image.asset(
                     'assets/images/user.png',
                     width: 50,
                   ),
-                  Container(width: 160,margin: EdgeInsets.symmetric(horizontal: 15),
+                  Container(
+                    width: 160,
+                    margin: EdgeInsets.symmetric(horizontal: 15),
                     child: Column(
                       children: [
-                        cardtext('Email :', email,'Full Name : ',fullname),
-                    ],),
-                  )
-                  ,Spacer(),
+                        customTextCard('Email :', email, 'Full Name : ', fullName),
+                      ],
+                    ),
+                  ),
+                  Spacer(),
                   Container(
                     width: 40,
                     height: 40,

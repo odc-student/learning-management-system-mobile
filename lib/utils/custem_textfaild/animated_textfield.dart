@@ -75,7 +75,6 @@ class _AnimatedTextFieldState extends State<AnimatedTextField>
         child: TextField(
           controller: widget.textController,
           focusNode: _focusNode,
-
           decoration: InputDecoration(
             labelText: widget.label,
             labelStyle: TextStyle(

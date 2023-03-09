@@ -1,6 +1,6 @@
 part of 'package:osltestcubit/variable/imports.dart';
 
-
+// Todo: remove it
 class SignupCubit extends Cubit<SignupState>{
   final SignupRepository _repository;
   SignupCubit(this._repository): super(InitSignupState());
@@ -8,7 +8,7 @@ class SignupCubit extends Cubit<SignupState>{
   Future<void> Signup(String name, email,date, pwd,photo)async{
     try{
       emit(LoadingSignupState());
-      final response =await _repository.Signup(name, email, date, pwd, photo);
+      final response =await _repository.signUp(name, email, date, pwd, photo);
       emit(ResposeSignupState(response));
 
     }catch(e){

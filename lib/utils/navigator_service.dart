@@ -10,10 +10,10 @@ class NavigatorService {
     return globalKey.currentState!
         .push(MaterialPageRoute(builder: (context) => destination));
   }
-  Future<dynamic> navigatetoReplacement(Widget destination){
+  Future<dynamic> navigateToReplacement(Widget destination){
     return globalKey.currentState!.pushReplacement(
       PageRouteBuilder(
-          pageBuilder: (a, b, c) => OnborderListCourses(),
+          pageBuilder: (a, b, c) => destination,
           transitionDuration: Duration(seconds: 0)),
     );
   }

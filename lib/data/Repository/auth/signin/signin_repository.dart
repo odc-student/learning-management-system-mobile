@@ -1,12 +1,10 @@
-
 part of 'package:osltestcubit/variable/imports.dart';
 
-class SigninRepository {
+class SignInRepository {
   static const url = urlLogin;
 
-  Future<dynamic> login(String email,String pwd) async {
-
-    final uri = Uri.parse("$url");
+  Future<dynamic> login(String email, String pwd) async {
+    final uri = Uri.parse(url);
     final response = await http.post(
       uri,
       headers: <String, String>{
@@ -14,18 +12,18 @@ class SigninRepository {
       },
       body: jsonEncode({
         'email': email,
-        'password':pwd,
+        'password': pwd,
       }),
     );
     if (response.statusCode == 200) {
-final result = userRes.fromJson(jsonDecode(response.body));
+      final result = userRes.fromJson(jsonDecode(response.body));
 
-final userInstance = await SharedPreferences.getInstance();
-await userInstance.setString('token', result.token.toString());
+      final userInstance = await SharedPreferences.getInstance();
+      await userInstance.setString('token', result.token.toString());
 
-token=userInstance.getString('token');
-return result;
-    }else{
+      token = userInstance.getString('token');
+      return result;
+    } else {
       throw "Something went wrong code ${response.statusCode}";
     }
   }

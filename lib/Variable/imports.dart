@@ -8,13 +8,15 @@ import 'package:http/http.dart' as http;
 import 'dart:ui' as ui;
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
+import 'package:osltestcubit/cubit/user/delete/delete_user_state.dart';
+import 'package:osltestcubit/data/models/sprint.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 import 'dart:convert';
 import 'package:html/parser.dart' show parse;
 import 'package:image_picker/image_picker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:osltestcubit/cubit/auth/signup/signup_state.dart';
-import 'package:osltestcubit/cubit/auth/user/update/update_state.dart';
+import 'package:osltestcubit/cubit/user/update/update_state.dart';
 import 'package:osltestcubit/data/models/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -32,23 +34,26 @@ import 'package:image_picker/image_picker.dart';
 
 
 part 'package:osltestcubit/ui/Listcourses.dart';
-part 'package:osltestcubit/ui/update_course.dart';
-part 'package:osltestcubit/ui/course.dart';
+part 'package:osltestcubit/ui/readme_file_data.dart';
 
 part 'package:osltestcubit/ui/auth/AuthPage.dart';
 part 'package:osltestcubit/ui/auth/updateprofile/UpdateProfile.dart';
 part 'package:osltestcubit/ui/auth/signin/SignIn.dart';
 part 'package:osltestcubit/ui/auth/user/profile.dart';
+part 'package:osltestcubit/ui/auth/user/everyuserdata.dart';
 part 'package:osltestcubit/ui/auth/user/textstyle.dart';
-part 'package:osltestcubit/ui/onborderUI/onborder_courses.dart';
-part 'package:osltestcubit/utils/custem_textfaild/animated_textfield.dart';
+part 'package:osltestcubit/ui/onborderUI/home_screen.dart';
 part 'package:osltestcubit/utils/custem_textfaild/utils.dart';
 part 'package:osltestcubit/ui/lists/listcourses.dart';
 part 'package:osltestcubit/ui/lists/listusers.dart';
+part 'package:osltestcubit/ui/lists/listsprints.dart';
+
+part 'package:osltestcubit/utils/custem_textfaild/animated_textfield.dart';
+
 
 part 'package:osltestcubit/variable/var.dart';
+part 'package:osltestcubit/variable/url.dart';
 
-part 'package:osltestcubit/data/repository/sprint/sprint_data_repository.dart';
 part 'package:osltestcubit/data/repository/course/add_course_repository.dart';
 part 'package:osltestcubit/data/repository/course/all_courses_repository.dart';
 part 'package:osltestcubit/data/repository/course/delete_course_repository.dart';
@@ -58,6 +63,11 @@ part 'package:osltestcubit/data/repository/auth/signup/signup_repository.dart';
 part 'package:osltestcubit/data/repository/auth/user/get_me_repository.dart';
 part 'package:osltestcubit/data/repository/auth/user/update_user_repository.dart';
 part 'package:osltestcubit/data/repository/auth/user/all_users_repository.dart';
+part 'package:osltestcubit/data/repository/auth/user/get_user_repository.dart';
+part 'package:osltestcubit/data/repository/auth/user/delete_user_repository.dart';
+
+
+part 'package:osltestcubit/data/repository/sprint/all_sprint_repository.dart';
 
 part 'package:osltestcubit/cubit/course/add_course/add_course_cubit.dart';
 part 'package:osltestcubit/cubit/course/delete_course/delete_course_cubit.dart';
@@ -65,21 +75,26 @@ part 'package:osltestcubit/cubit/course/get_all_courses/all_courses_cubit.dart';
 part 'package:osltestcubit/cubit/course/update_course/update_course_cubit.dart';
 part 'package:osltestcubit/cubit/course/get_all_courses/all_courses_state.dart';
 
-part 'package:osltestcubit/cubit/sprint/get_data_from_sprint/sprint_data_state.dart';
-part 'package:osltestcubit/cubit/sprint/get_data_from_sprint/sprint_data_cubit.dart';
+part 'package:osltestcubit/cubit/sprint/all_sprint/all_sprint_cubit.dart';
+part 'package:osltestcubit/cubit/sprint/all_sprint/all_sprint_state.dart';
+
 
 part 'package:osltestcubit/cubit/auth/signin/signin_state.dart';
 part 'package:osltestcubit/cubit/auth/signin/signin_cubit.dart';
 
-part 'package:osltestcubit/cubit/auth/user/get_all_users/get_all_users_state.dart';
-part 'package:osltestcubit/cubit/auth/user/get_all_users/get_all_users_cubit.dart';
+part 'package:osltestcubit/cubit/user/get_all_users/get_all_users_state.dart';
+part 'package:osltestcubit/cubit/user/get_all_users/get_all_users_cubit.dart';
+part 'package:osltestcubit/cubit/user/delete/delete_user_cubit.dart';
 
 part 'package:osltestcubit/cubit/auth/signup/signup_cubit.dart';
 
-part 'package:osltestcubit/cubit/auth/user/data/get_me_cubit.dart';
-part 'package:osltestcubit/cubit/auth/user/data/get_me_state.dart';
+part 'package:osltestcubit/cubit/user/profil/get_me_cubit.dart';
+part 'package:osltestcubit/cubit/user/profil/get_me_state.dart';
 
-part 'package:osltestcubit/cubit/auth/user/update/update_cubit.dart';
+part 'package:osltestcubit/cubit/user/get_user/get_user_cubit.dart';
+part 'package:osltestcubit/cubit/user/get_user/get_user_state.dart';
+
+part 'package:osltestcubit/cubit/user/update/update_cubit.dart';
 
 part 'package:osltestcubit/utils/button.dart';
 part 'package:osltestcubit/utils/navbar.dart';
@@ -88,4 +103,5 @@ part 'package:osltestcubit/utils/navigator_service.dart';
 part 'package:osltestcubit/utils/ImagePickerbase64.dart';
 part 'package:osltestcubit/utils/cards/course.dart';
 part 'package:osltestcubit/utils/cards/user.dart';
-part 'package:osltestcubit/ui/lists/usertextstyle.dart';
+part 'package:osltestcubit/utils/cards/sprint.dart';
+part 'package:osltestcubit/ui/lists/user_text_card.dart';

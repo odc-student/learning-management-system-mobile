@@ -30,22 +30,24 @@ class MyApp extends StatelessWidget {
       ),
     home: MultiBlocProvider(
       providers:[
-        BlocProvider(create: (BuildContext context) => CoursCubit(CoursRepository())),
-        BlocProvider(create: (BuildContext context) => DeletecourseCubit(DeleteCoursRepository()) ),
+        BlocProvider(create: (BuildContext context) => CoursesCubit(CourseRepository())),
+        BlocProvider(create: (BuildContext context) => DeleteCourseCubit(DeleteCourseRepository()) ),
         BlocProvider(create: (BuildContext context) => UpdateCourseDataCubit( UpdateCourseDataRepository()) ),
-        BlocProvider(create: (BuildContext context) => CoursDataCubit( DataCoursRepository())),
         BlocProvider(create: (BuildContext context) => AddCourseCubit( AddCourseRepository()) ),
         BlocProvider(create: (BuildContext context) => SignupCubit( SignupRepository()) ),
-        BlocProvider(create: (BuildContext context) => UserCubit( GetMeRepository()) ),
+        BlocProvider(create: (BuildContext context) => MyUserCubit( GetMeRepository()) ),
+        BlocProvider(create: (BuildContext context) => UserCubit( UserRepository()) ),
         BlocProvider(create: (BuildContext context) => UpdateUserDataCubit( UpdateUserRepository()) ),
         BlocProvider(create: (BuildContext context) => AllUsersCubit( UsersRepository()) ),
-        BlocProvider(create: (BuildContext context) => SigninCubit( SigninRepository()) )
+        BlocProvider(create: (BuildContext context) => DeleteUserCubit( DeleteUserRepository()) ),
+        BlocProvider(create: (BuildContext context) => SprintsCubit( SprintsRepository()) ),
+        BlocProvider(create: (BuildContext context) => SignInCubit( SignInRepository()) )
 
       ],
         child:  MaterialApp(
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigatorService.instance.globalKey,
-          home: OnborderListCourses(),
+          home: HomeScreen(),
         ),),
     );
 

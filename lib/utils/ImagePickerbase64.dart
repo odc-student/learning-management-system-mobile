@@ -11,6 +11,4 @@ class Base64 {
     String _base64 = base64.encode(imagebyte);
    // await MongoDatabase.Update(fieldName1, value1, "photo", _base64.toString());
   }
-
-
 }

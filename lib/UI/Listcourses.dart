@@ -1,5 +1,5 @@
 part of 'package:osltestcubit/variable/imports.dart';
-
+//Todo: remove this copy of list courses
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -12,8 +12,8 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
 
-    final cubit = context.read<CoursCubit>();
-    cubit.fetchCours();
+    final cubit = context.read<CoursesCubit>();
+    cubit.fetchCourses();
   }
 
   @override
@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
             style: TextStyle(color: odc),
           ),
         ),
-        body: BlocBuilder<CoursCubit, CourseState>(
+        body: BlocBuilder<CoursesCubit, CourseState>(
           builder: (BuildContext context, Object? state) {
             if (state is InitCourseState || state is LoadingCourseState) {
               return Center(
@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
               );
             } else if (state is ResponseCourseState) {
               //Todo: change the courses from hire to be like these courses["course"][index] and cour['titre']
-              final courses = state.cours.course;
+              final courses = state.courses.course;
               return ListView.builder(
                   itemCount: courses.length,
                   itemBuilder: (context, index) {
@@ -46,16 +46,18 @@ class _HomeState extends State<Home> {
                           key: ValueKey(index.toString()),
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                            child: CourCard(
+                            child: CourseCard(
                               title: cour.title ?? "",
-                              Description: cour.description ?? "",
-                              active_sprint: cour.is_visible ?? 0,
+                              description: cour.description ?? "",
+                              activeSprint: 0,
                               id: '',
+                              sprintList: [],
                               index: 0,
+                              isVisible: false,
                             ),
                           ),
                           onDismissed: (direction) {
-                            BlocBuilder<DeletecourseCubit, DeleteCourseState>(
+                            BlocBuilder<DeleteCourseCubit, DeleteCourseState>(
                                 builder: (BuildContext context, Object? state) {
                               if (state is InitDeleteCourseState) {
                                 return Container();
@@ -65,7 +67,7 @@ class _HomeState extends State<Home> {
                                 );
                               } else if (state is ResponseDeleteCourseState) {
                                 context
-                                    .read<DeletecourseCubit>()
+                                    .read<DeleteCourseCubit>()
                                     .delete(cour.id ?? "");
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(

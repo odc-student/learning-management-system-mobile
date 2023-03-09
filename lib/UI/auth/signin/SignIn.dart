@@ -11,9 +11,9 @@ class _SignInState extends State<SignIn> {
   final TextEditingController _userEmailTextController =
       TextEditingController();
   final TextEditingController _passwordTextController = TextEditingController();
-  bool isRemambred = false;
+  bool isRemembered = false;
 
-  Color getColor(Set<MaterialState> states) {
+  Color _getColor(Set<MaterialState> states) {
     const Set<MaterialState> interactiveStates = <MaterialState>{
       MaterialState.pressed,
       MaterialState.hovered,
@@ -41,31 +41,31 @@ class _SignInState extends State<SignIn> {
           Row(
             children: [
               Checkbox(
-                  value: isRemambred,
-                  fillColor: MaterialStateProperty.resolveWith(getColor),
+                  value: isRemembered,
+                  fillColor: MaterialStateProperty.resolveWith(_getColor),
                   onChanged: (bool? value) {
                     setState(() {
-                      isRemambred = value!;
+                      isRemembered = value!;
                     });
                   }),
               Text(
-                "Remmaber Me",
+                "Remember Me",
                 style: TextStyle(color: Colors.white),
               ),
             ],
           ),
-          SigninupButton(context, true, () async {
+          customButton(context, true, () async {
             if (_userEmailTextController.text.isEmpty) {
               var snackBar =
-                  SnackBar(content: Text('Email TextFaild is empty'));
+                  SnackBar(content: Text('Email is empty'));
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
               if (_passwordTextController.text.isEmpty) {
                 var snackBar =
-                    SnackBar(content: Text('Possword TextFaild is empty'));
+                    SnackBar(content: Text('Password is empty'));
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
               }
             } else {
-              context.read<SigninCubit>().Login(
+              context.read<SignInCubit>().login(
                   _userEmailTextController.text, _passwordTextController.text);
             }
           })

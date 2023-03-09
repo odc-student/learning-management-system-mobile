@@ -1,12 +1,12 @@
 part of 'package:osltestcubit/variable/imports.dart';
-class Listusers extends StatefulWidget {
-  const Listusers({Key? key}) : super(key: key);
+class ListUsers extends StatefulWidget {
+  const ListUsers({Key? key}) : super(key: key);
 
   @override
-  State<Listusers> createState() => _ListusersState();
+  State<ListUsers> createState() => _ListUsersState();
 }
 
-class _ListusersState extends State<Listusers> {
+class _ListUsersState extends State<ListUsers> {
   bool startAnimation = false;
   @override
   void initState() {
@@ -34,7 +34,7 @@ class _ListusersState extends State<Listusers> {
           final users = state.user.userattribute;
           return RefreshIndicator(
             onRefresh: () {
-              NavigatorService.instance.navigatetoReplacement(OnborderListCourses());
+              NavigatorService.instance.navigateToReplacement(HomeScreen());
             // PageRouteBuilder
               return Future.value(false);
             },
@@ -60,9 +60,9 @@ class _ListusersState extends State<Listusers> {
 
                             child: UserCard(
                               id: user.id ?? "",
-                              fullname: user.fullname ?? "",
+                              fullName: user.fullName ?? "",
                               email: user.email ?? "",
-                              active_sprint:  Random().nextInt(100),// Todo: add attribute in model and mongodb and api
+                              activeSprint:  Random().nextInt(100),// Todo: add attribute in model and mongodb and api
                               index: index,
                             ),
                           ),
@@ -70,7 +70,7 @@ class _ListusersState extends State<Listusers> {
                   );
                 }),
           );
-        } else if (state is ErrorAllUserStatee) {
+        } else if (state is ErrorAllUserState) {
           return Center(
               child: Text(
                 state.message,

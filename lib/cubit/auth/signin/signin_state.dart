@@ -2,18 +2,18 @@
 
 part of 'package:osltestcubit/variable/imports.dart';
 
-abstract class SigninState{}
-class InitSigninState extends SigninState{}
+abstract class SignInState{}
+class InitSignInState extends SignInState{}
 
-class LoadingSigninState extends SigninState{}
+class LoadingSignInState extends SignInState{}
 
-class ErrorSigninState extends SigninState{
+class ErrorSignInState extends SignInState{
   final String message;
-  ErrorSigninState(this.message);
+  ErrorSignInState(this.message);
 }
 
-class ResponseSigninState extends SigninState{
+class ResponseSignInState extends SignInState{
   final userRes user;
 
-  ResponseSigninState(this.user);
+  ResponseSignInState(this.user);
 }

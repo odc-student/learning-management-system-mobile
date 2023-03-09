@@ -3,7 +3,7 @@ part of 'package:osltestcubit/variable/imports.dart';
 class UsersRepository {
   static const url = apiUser;
 
-  Future<alluserSucc> getAll() async {
+  Future<allUserSuccess> getAll() async {
     final uri = Uri.parse(url);
     final response = await http.get(
       uri,
@@ -13,10 +13,10 @@ class UsersRepository {
       },
     );
     if (response.statusCode == 200) {
-      final result = alluserSucc.fromJson(jsonDecode(response.body));
+      final result = allUserSuccess.fromJson(jsonDecode(response.body));
       return result;
     } else {
-      throw "Somthing went wrong code ${response.statusCode}";
+      throw "Something went wrong code ${response.statusCode}";
     }
   }
 }
