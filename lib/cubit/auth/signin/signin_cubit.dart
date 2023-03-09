@@ -1,24 +1,18 @@
-
 part of 'package:osltestcubit/variable/imports.dart';
 
-class SigninCubit extends Cubit<SigninState>{
-  final SigninRepository _reposotory;
-  SigninCubit(this._reposotory) : super(InitSigninState());
+class SignInCubit extends Cubit<SignInState> {
+  final SignInRepository _repository;
 
+  SignInCubit(this._repository) : super(InitSignInState());
 
-  Future<void> Login(String email , pwd)async{
-    try{
-      emit(LoadingSigninState());
-      final response = await _reposotory.login(email,pwd);
-  emit(ResponseSigninState(response));
-      NavigatorService.instance.navigateTo(OnborderListCourses());
-
-
-
-
-    }catch(e){
-      emit(ErrorSigninState(e.toString()));
+  Future<void> login(String email, password) async {
+    try {
+      emit(LoadingSignInState());
+      final loginResponse = await _repository.login(email, password);
+      emit(ResponseSignInState(loginResponse));
+      NavigatorService.instance.navigateTo(HomeScreen());
+    } catch (e) {
+      emit(ErrorSignInState(e.toString()));
     }
   }
-
 }

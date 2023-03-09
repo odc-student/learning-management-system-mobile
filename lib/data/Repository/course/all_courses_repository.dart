@@ -1,10 +1,10 @@
 part of 'package:osltestcubit/variable/imports.dart';
 
-class CoursRepository {
+class CourseRepository {
   static const url = urlCourse;
 
   Future<Courses> getAll() async {
-    final uri = Uri.parse("$url");
+    final uri = Uri.parse(url);
     final response = await http.get(uri);
     if (response.statusCode == 200) {
       final result = Courses.fromJson(jsonDecode(response.body));

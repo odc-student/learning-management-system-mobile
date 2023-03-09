@@ -1,18 +1,19 @@
 part of 'package:osltestcubit/variable/imports.dart';
 
-class DeletecourseCubit extends Cubit<DeleteCourseState> {
-  final DeleteCoursRepository _DeleteCoursRepository;
+class DeleteCourseCubit extends Cubit<DeleteCourseState> {
+  final DeleteCourseRepository _deleteCoursRepository;
 
-  DeletecourseCubit(this._DeleteCoursRepository) : super(InitDeleteCourseState());
+  DeleteCourseCubit(this._deleteCoursRepository)
+      : super(InitDeleteCourseState());
 
   Future<void> delete(String id) async {
     emit(LoadingDeleteCourseState());
     try {
-      final isDeleted = await _DeleteCoursRepository.delete(id);
+      final isDeleted = await _deleteCoursRepository.delete(id);
       if (isDeleted) {
         emit(ResponseDeleteCourseState(true));
       } else {
-        emit(ErrorDeleteCourseState('Failed to delete data.'));
+        emit(ErrorDeleteCourseState('Failed to delete course.'));
       }
     } catch (e) {
       emit(ErrorDeleteCourseState(e.toString()));

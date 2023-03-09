@@ -1,7 +1,17 @@
 part of 'package:osltestcubit/variable/imports.dart';
 
 class Signup extends StatefulWidget {
-  const Signup({Key? key}) : super(key: key);
+  const Signup(
+      {Key? key,
+      required this.email,
+      required this.fullName,
+      required this.dateB,
+      required this.phoneN})
+      : super(key: key);
+  final String email;
+  final String fullName;
+  final String dateB;
+  final String phoneN;
 
   @override
   State<Signup> createState() => _SignupState();
@@ -10,20 +20,10 @@ class Signup extends StatefulWidget {
 class _SignupState extends State<Signup> {
   final TextEditingController _firstnameTextController =
       TextEditingController();
-  final TextEditingController _lastnameTextController = TextEditingController();
   final TextEditingController _userEmailTextController =
       TextEditingController();
-  final TextEditingController _phonenumberTextController =
+  final TextEditingController _phoneNumberTextController =
       TextEditingController();
-  final TextEditingController _passwordTextController = TextEditingController();
-  final TextEditingController _confirmpasswordTextController =
-      TextEditingController();
-  final TextEditingController _governorateTextController =
-      TextEditingController();
-  final TextEditingController _municipalityTextController =
-      TextEditingController();
-  final TextEditingController _ageTextController = TextEditingController();
-  final TextEditingController _genderTextController = TextEditingController();
   final TextEditingController _dateOfBirthTextController =
       TextEditingController();
   bool isChecked = false;
@@ -45,16 +45,26 @@ class _SignupState extends State<Signup> {
     return Container(
       child: Column(
         children: [
-
           Divider(),
           getTextField(
-             fullname.toString().isEmpty?"Full Name":fullname, Icons.person, false, _firstnameTextController),
-          getTextField(email.toString().isEmpty?"Email":email, Icons.mail_outline_rounded, false,
-              _userEmailTextController),
-          getTextField(dateB.toString().isEmpty?"Date of Birth":dateB, Icons.event_rounded, false,
+              widget.fullName.toString().isEmpty
+                  ? "Full Name"
+                  : widget.fullName,
+              Icons.person,
+              false,
+              _firstnameTextController),
+          getTextField(widget.email.toString().isEmpty ? "Email" : widget.email,
+              Icons.mail_outline_rounded, false, _userEmailTextController),
+          getTextField(
+              widget.dateB.toString().isEmpty ? "Date of Birth" : widget.dateB,
+              Icons.event_rounded,
+              false,
               _dateOfBirthTextController),
-          getTextField(PhoneN.toString().isEmpty?"Phone Number":PhoneN, Icons.phone_android, false,
-              _phonenumberTextController),
+          getTextField(
+              widget.phoneN.toString().isEmpty ? "Phone Number" : widget.phoneN,
+              Icons.phone_android,
+              false,
+              _phoneNumberTextController),
           Padding(
             padding: const EdgeInsets.only(left: 40.0),
             child: Row(
@@ -71,9 +81,6 @@ class _SignupState extends State<Signup> {
                   style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.resolveWith((states) {
-                        if (states.contains(MaterialState.pressed)) {
-                          return Color(0xFFFF7900);
-                        }
                         return Color(0xFFFF7900);
                       }),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -83,27 +90,34 @@ class _SignupState extends State<Signup> {
               ],
             ),
           ),
-          SigninupButton(context, false, () {
-             if (_firstnameTextController.text.isNotEmpty) {
-               context.read<UpdateUserDataCubit>().UpdateUser(id, 'fullName', _firstnameTextController.text);
-              var snackBar =
-                  SnackBar(content: Text("full name updated "));snackBar;
+          customButton(context, false, () {
+            if (_firstnameTextController.text.isNotEmpty) {
+              context
+                  .read<UpdateUserDataCubit>()
+                  .updateUser(id, 'fullName', _firstnameTextController.text);
+              var snackBar = SnackBar(content: Text("full name updated "));
+              snackBar;
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
-            } if(_userEmailTextController.text.toString().isNotEmpty) {
-               context.read<UpdateUserDataCubit>().UpdateUser(id, 'email', _userEmailTextController.text);
-               var snackBar =
-               SnackBar(content: Text("email updated "));snackBar;
-             }if(_dateOfBirthTextController.text.toString().isNotEmpty) {
-               context.read<UpdateUserDataCubit>().UpdateUser(id, 'dateOfBirth', _dateOfBirthTextController.text);
-               var snackBar =
-               SnackBar(content: Text("Date Of Birth updated "));
-               snackBar;
-             }if(_phonenumberTextController.text.toString().isNotEmpty) {
-               context.read<UpdateUserDataCubit>().UpdateUser(id, 'phoneNumber', _phonenumberTextController.text);
-               var snackBar =
-               SnackBar(content: Text("Date Of Birth updated "));
-               snackBar;
-             }
+            }
+            if (_userEmailTextController.text.toString().isNotEmpty) {
+              context
+                  .read<UpdateUserDataCubit>()
+                  .updateUser(id, 'email', _userEmailTextController.text);
+              var snackBar = SnackBar(content: Text("email updated "));
+              snackBar;
+            }
+            if (_dateOfBirthTextController.text.toString().isNotEmpty) {
+              context.read<UpdateUserDataCubit>().updateUser(
+                  id, 'dateOfBirth', _dateOfBirthTextController.text);
+              var snackBar = SnackBar(content: Text("Date Of Birth updated "));
+              snackBar;
+            }
+            if (_phoneNumberTextController.text.toString().isNotEmpty) {
+              context.read<UpdateUserDataCubit>().updateUser(
+                  id, 'phoneNumber', _phoneNumberTextController.text);
+              var snackBar = SnackBar(content: Text("Date Of Birth updated "));
+              snackBar;
+            }
           })
         ],
       ),

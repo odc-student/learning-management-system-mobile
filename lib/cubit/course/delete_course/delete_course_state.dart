@@ -9,6 +9,6 @@ class ErrorDeleteCourseState extends DeleteCourseState{
   ErrorDeleteCourseState(this.message);
 }
 class ResponseDeleteCourseState extends DeleteCourseState{
-  final bool isdeleted;
-  ResponseDeleteCourseState(this.isdeleted);
+  final bool isDeleted;
+  ResponseDeleteCourseState(this.isDeleted);
 }

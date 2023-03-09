@@ -4,7 +4,7 @@ part of 'package:osltestcubit/variable/imports.dart';
 class UpdateUserRepository{
   static const url =apiUser;
 
-  Future<bool> updateuser(String id, title, value)async{
+  Future<bool> updateUser(String id, title, value)async{
     final uri = Uri.parse("$url/$id");
     final response =await http.put(
       uri,

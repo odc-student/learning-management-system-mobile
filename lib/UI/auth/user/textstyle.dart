@@ -9,13 +9,15 @@ Widget Profiletext(
       Text(
         text,
         style: TextStyle(color: odc),
-      ), Spacer(),
+      ),
+      Spacer(),
       Text(
         value,
         style: TextStyle(color: white),
       ),
-      SizedBox(height: 30,)
-
+      SizedBox(
+        height: 30,
+      )
     ],
   );
 }

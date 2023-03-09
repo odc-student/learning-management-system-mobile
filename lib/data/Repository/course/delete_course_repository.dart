@@ -1,6 +1,6 @@
 
 part of 'package:osltestcubit/variable/imports.dart';
-class DeleteCoursRepository {
+class DeleteCourseRepository {
   static const url = urlCourse;
 
   Future<bool> delete(String id) async {

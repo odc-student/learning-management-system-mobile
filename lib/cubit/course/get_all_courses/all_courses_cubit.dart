@@ -1,21 +1,18 @@
 part of 'package:osltestcubit/variable/imports.dart';
 
+class CoursesCubit extends Cubit<CourseState> {
+  final CourseRepository _repository;
 
-class CoursCubit extends Cubit<CourseState>{
-  final CoursRepository _reposotory;
-  CoursCubit(this._reposotory) : super(InitCourseState());
+  CoursesCubit(this._repository) : super(InitCourseState());
 
-
-  Future<void> fetchCours()async{
-    try{
+  Future<void> fetchCourses() async {
+    try {
       emit(LoadingCourseState());
-      final response = await _reposotory.getAll();
+      final allCoursesResponse = await _repository.getAll();
 
-      emit(ResponseCourseState(response));
-
-    }catch(e){
+      emit(ResponseCourseState(allCoursesResponse));
+    } catch (e) {
       emit(ErrorCourseState(e.toString()));
     }
   }
-
 }
