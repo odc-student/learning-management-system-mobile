@@ -13,7 +13,7 @@ class DeleteCourseCubit extends Cubit<DeleteCourseState> {
       if (isDeleted) {
         emit(ResponseDeleteCourseState(true));
       } else {
-        emit(ErrorDeleteCourseState('Failed to delete course.'));
+        emit(ErrorDeleteCourseState('Failed to add course.'));
       }
     } catch (e) {
       emit(ErrorDeleteCourseState(e.toString()));

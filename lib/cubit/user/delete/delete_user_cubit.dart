@@ -13,7 +13,7 @@ class DeleteUserCubit extends Cubit<DeleteUserState> {
       if (isDeleted) {
         emit(ResponseDeleteUserState(true));
       } else {
-        emit(ErrorDeleteUserState('Failed to delete data.'));
+        emit(ErrorDeleteUserState('Failed to add data.'));
       }
     } catch (e) {
       emit(ErrorDeleteUserState(e.toString()));

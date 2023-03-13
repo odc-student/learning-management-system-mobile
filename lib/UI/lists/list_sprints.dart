@@ -1,8 +1,10 @@
 part of 'package:osltestcubit/variable/imports.dart';
 
 class ListSprints extends StatefulWidget {
-  const ListSprints({Key? key, required this.list,required this.title}) : super(key: key);
-  final List list;
+  const ListSprints({Key? key, required this.title, required this.id})
+      : super(key: key);
+
+  final String id;
   final String title;
 
   @override
@@ -11,6 +13,8 @@ class ListSprints extends StatefulWidget {
 
 class _ListSprintsState extends State<ListSprints> {
   bool startAnimation = false;
+  TextEditingController _titleController = TextEditingController();
+  TextEditingController _linkController = TextEditingController();
 
   @override
   void initState() {
@@ -22,15 +26,34 @@ class _ListSprintsState extends State<ListSprints> {
       });
     });
 
-    final cubit = context.read<SprintsCubit>();
-    cubit.fetchSprint();
+    final sprint = context.read<SprintsCubit>();
+    sprint.fetchSprint(widget.id);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: black,
-      appBar: AppBar(backgroundColor: black,
-        title: Text('${widget.title} Sprints',style: TextStyle(color: white),),
+    void _add() async {
+      NavigatorService.instance.navigateToReplacement(ListSprints(title: widget.title, id: widget.id));
+
+      context
+          .read<AddSprintCubit>()
+          .add(_titleController.text, _linkController.text, widget.id);
+    }
+
+    return Scaffold(
+      backgroundColor: black,
+      floatingActionButton: customActionButton(
+          context,
+          addSprintFloatingButton(
+              titleController: _titleController,
+              linkController: _linkController),
+          _add),
+      appBar: AppBar(
+        backgroundColor: black,
+        title: Text(
+          '${widget.title} Sprints',
+          style: TextStyle(color: white),
+        ),
       ),
       body: BlocBuilder<SprintsCubit, SprintsState>(
         builder: (BuildContext context, Object? state) {
@@ -42,8 +65,8 @@ class _ListSprintsState extends State<ListSprints> {
             final sprints = state.sprints.sprint;
             return RefreshIndicator(
               onRefresh: () {
-                NavigatorService.instance
-                    .navigateToReplacement(HomeScreen());
+                NavigatorService.instance.navigateToReplacement(
+                    ListSprints(title: widget.title, id: widget.id));
                 // PageRouteBuilder
                 return Future.value(false);
               },
@@ -61,14 +84,16 @@ class _ListSprintsState extends State<ListSprints> {
                         0,
                       ),
                       child: ListTile(
-                          title: Container(margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                          title: Container(
+                        margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: SprintCard(
-                          id: sprint.id ?? "",
+                          idCourse: widget.id,
                           title: sprint.title ?? "",
-                          description: sprint.link ?? "",
+                          link: sprint.link ?? "",
                           isVisible: sprint.isVisible ?? false,
                           activeSprint: 0,
                           index: index,
+                          idSprint: sprint.id ?? "",
                         ),
                       )),
                     );

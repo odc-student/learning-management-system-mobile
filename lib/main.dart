@@ -41,6 +41,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (BuildContext context) => AllUsersCubit( UsersRepository()) ),
         BlocProvider(create: (BuildContext context) => DeleteUserCubit( DeleteUserRepository()) ),
         BlocProvider(create: (BuildContext context) => SprintsCubit( SprintsRepository()) ),
+        BlocProvider(create: (BuildContext context) => AddSprintCubit( AddSprintRepository()) ),
+        BlocProvider(create: (BuildContext context) => UpdateSprintCubit( UpdateSprintRepository()) ),
+        BlocProvider(create: (BuildContext context) => DeleteSprintCubit( DeleteSprintRepository()) ),
         BlocProvider(create: (BuildContext context) => SignInCubit( SignInRepository()) )
 
       ],

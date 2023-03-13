@@ -2,7 +2,7 @@ part of 'package:osltestcubit/variable/imports.dart';
 //Todo:use it
 
 
-Future<dynamic> customDialog(BuildContext context,ScaffoldFeatureController<SnackBar, SnackBarClosedReason> todoOnDismiss,Function todoOnOK,Function todoOnCancel,Widget dialogContainer) {
+Future<dynamic> customDialog(BuildContext context,dynamic todoOnDismiss,Function todoOnOK,Widget dialogContainer) {
   return AwesomeDialog(
     context: context,
     dialogType: DialogType.noHeader,
@@ -22,10 +22,10 @@ Future<dynamic> customDialog(BuildContext context,ScaffoldFeatureController<Snac
     ),
     showCloseIcon: true,
     btnCancelOnPress: () {
-      todoOnCancel;
+     cancel(HomeScreen());
     },
     btnOkOnPress: () async {
-      todoOnOK;
+      todoOnOK();
     },
   ).show();
 }

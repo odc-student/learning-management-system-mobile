@@ -24,6 +24,7 @@ class CourseAttribute {
   }
 }
 
+
 class Courses {
   final bool success;
 

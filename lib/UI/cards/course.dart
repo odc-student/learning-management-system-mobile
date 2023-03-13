@@ -1,9 +1,6 @@
 part of 'package:osltestcubit/variable/imports.dart';
 
-class CourseCard extends StatelessWidget {
-  final TextEditingController _titleController = TextEditingController();
-  final TextEditingController _descriptionController = TextEditingController();
-
+class CourseCard extends StatefulWidget {
   CourseCard(
       {Key? key,
       required this.id,
@@ -17,39 +14,60 @@ class CourseCard extends StatelessWidget {
   final String title;
   final String description;
   final num activeSprint;
-  final bool isVisible;
+  bool isVisible;
   final int index;
   final String id;
   final List sprintList;
 
   @override
+  State<CourseCard> createState() => _CourseCardState();
+}
+
+class _CourseCardState extends State<CourseCard> {
+  final TextEditingController _titleController = TextEditingController();
+
+  final TextEditingController _descriptionController = TextEditingController();
+  bool seeMore = false;
+  bool isSeeMoreActive=true;
+
+  @override
+  void initState(){
+    super.initState();
+    if(widget.description.length<100){
+      setState(() {
+        isSeeMoreActive=!isSeeMoreActive;
+      });
+    }
+  }
+  @override
   Widget build(BuildContext context) {
     void _editCourse() async {
       context.read<UpdateCourseDataCubit>().update(
-          id,
+          widget.id,
           "description",
           _descriptionController.text.isEmpty
-              ? description
+              ? widget.description
               : _descriptionController.text);
-      context.read<UpdateCourseDataCubit>().update(id, "titre",
-          _titleController.text.isEmpty ? title : _titleController.text);
+      context.read<UpdateCourseDataCubit>().update(widget.id, "titre",
+          _titleController.text.isEmpty ? widget.title : _titleController.text);
     }
 
     ;
     void _deleteCourse() async {
-      context.read<DeleteCourseCubit>().delete(id);
+      context.read<DeleteCourseCubit>().delete(widget.id);
     }
 
     ;
-    final double newValue = double.parse(activeSprint.toString());
+    final double newValue = double.parse(widget.activeSprint.toString());
     late ValueNotifier<double> valueNotifier;
     valueNotifier = ValueNotifier(0.0);
     valueNotifier.value = newValue;
+
     return Stack(
       children: [
         Container(
           child: Dismissible(
-            key: Key(index.toString()),
+            key: Key(widget.index.toString()),
             background: Container(
               margin: EdgeInsets.only(top: 20),
               decoration: BoxDecoration(
@@ -112,24 +130,23 @@ class CourseCard extends StatelessWidget {
                   context,
                   dialogDismissed(context),
                   _editCourse,
-                  cancel(HomeScreen()),
                   updateCourseDialog(
-                      title: title,
+                      title: widget.title,
                       titleController: _titleController,
-                      description: description,
+                      description: widget.description,
                       descriptionController: _descriptionController),
                 );
               } else {
                 customDialog(context, dialogDismissed(context), _deleteCourse,
-                    cancel(HomeScreen()), deleteCourseDialog(title: title));
+                    deleteCourseDialog(title: widget.title));
               }
             },
             child: InkWell(
                 radius: 20,
                 onTap: () {
                   NavigatorService.instance.navigateTo(ListSprints(
-                    list: sprintList,
-                    title: title,
+                    title: widget.title,
+                    id: widget.id,
                   ));
                 },
                 child: Stack(children: <Widget>[
@@ -151,19 +168,29 @@ class CourseCard extends StatelessWidget {
                             Padding(
                               padding:
                                   const EdgeInsets.only(top: 8.0, left: 10),
-                              child: Text(
-                                description,
-                                style: TextStyle(color:white),
+                              child: Container(
+                                margin: EdgeInsets.only(bottom: 10),
+                                width: 220,
+                                child: Text(
+                                  widget.description.length > 100
+                                      ?seeMore?widget.description :widget.description.substring(0, 140) +
+                                          '...'
+                                      : widget.description,
+                                  style: TextStyle(
+                                    color: white,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
                               ),
                             ),
                             Spacer(),
                             Container(
-                              width: 40,
-                              height: 105,
+                              width: 40, margin: EdgeInsets.only(bottom: 1),
                               child: Column(
                                 children: [
                                   InkWell(
-                                    child: isVisible
+                                    child: widget.isVisible
                                         ? Icon(
                                             Icons.visibility_outlined,
                                             color: odc,
@@ -175,10 +202,32 @@ class CourseCard extends StatelessWidget {
                                     onTap: () {
                                       context
                                           .read<UpdateCourseDataCubit>()
-                                          .update(id, "is_visible", !isVisible);
+                                          .update(widget.id, "is_visible",
+                                              !widget.isVisible);
+
+                                      setState(() {
+                                        widget.isVisible = !widget.isVisible;
+                                      });
                                     },
                                   ),
-                                  customCircularProgressBar(activeSprint),
+                                  customCircularProgressBar(
+                                      widget.activeSprint),
+                                  isSeeMoreActive?InkWell(
+                                    child: seeMore
+                                        ? FaIcon(
+                                            FontAwesomeIcons.angleUp,
+                                            color: white,
+                                          )
+                                        : FaIcon(
+                                            FontAwesomeIcons.angleDown,
+                                            color: white,
+                                          ),
+                                    onTap: () {
+                                      setState(() {
+                                        seeMore = !seeMore;
+                                      });
+                                    },
+                                  ):SizedBox(),
                                 ],
                               ),
                             )
@@ -209,17 +258,15 @@ class CourseCard extends StatelessWidget {
                                   bottom: 5, left: 10, right: 10),
                               decoration: BoxDecoration(
                                 color: white,
-                                border: Border.all(
-                                    color: odc, width: 1),
+                                border: Border.all(color: odc, width: 1),
                                 borderRadius: BorderRadius.circular(5),
                                 shape: BoxShape.rectangle,
                               ),
                               child: Padding(
                                 padding: EdgeInsets.only(top: 8),
                                 child: Text(
-                                  title,
-                                  style: TextStyle(
-                                      color: black, fontSize: 12),
+                                  widget.title,
+                                  style: TextStyle(color: black, fontSize: 12),
                                 ),
                               ),
                             ),

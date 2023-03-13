@@ -7,8 +7,6 @@ const apiUrl = "http://10.54.234.78:5000/v1/api";
 //Course
 const urlCourse = "$apiUrl/course";
 
-const urlSprint = "$apiUrl/sprint";
-const urlSprints = "$apiUrl/sprints";
 
 const apiAuthUrl = "$apiUrl/auth";
 

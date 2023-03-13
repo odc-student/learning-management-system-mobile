@@ -105,7 +105,6 @@ class UserCard extends StatelessWidget {
                   context,
                   dialogDismissed(context),
                   _editUser,
-                  cancel(HomeScreen()),
                   UpdateUserDialog(
                       fullName: fullName,
                       email: email,
@@ -113,8 +112,7 @@ class UserCard extends StatelessWidget {
                       descriptionController: _descriptionController));
             } else {
               customDialog(context, dialogDismissed(context), _delete,
-                  cancel(HomeScreen()), deleteUserDialog(title: fullName));
-
+                  deleteUserDialog(title: fullName));
             }
           },
           child: InkWell(

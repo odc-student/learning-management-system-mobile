@@ -6,6 +6,7 @@ class CourseRepository {
   Future<Courses> getAll() async {
     final uri = Uri.parse(url);
     final response = await http.get(uri);
+
     if (response.statusCode == 200) {
       final result = Courses.fromJson(jsonDecode(response.body));
       return result;

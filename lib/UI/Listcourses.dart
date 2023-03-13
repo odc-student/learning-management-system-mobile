@@ -76,9 +76,9 @@ class _HomeState extends State<Home> {
                               } else if (state is ErrorDeleteCourseState) {
                                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                     content: Text(
-                                        'Failed to delete $index :  ${state.message} ')));
+                                        'Failed to add $index :  ${state.message} ')));
                                 return Text(
-                                  'Failed to delete data: ${state.message}',
+                                  'Failed to add data: ${state.message}',
                                   style: TextStyle(color: white),
                                 );
                               }

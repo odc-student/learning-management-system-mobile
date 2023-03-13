@@ -9,7 +9,7 @@ class AddCourseRepository {
   ) async {
     try {
       final uri = Uri.parse(url);
-      final response = await http.post(uri,
+      final addCourse = await http.post(uri,
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
           },
@@ -17,7 +17,7 @@ class AddCourseRepository {
             'titre': titre,
             'description': description,
           }));
-      if (response.statusCode == 200) {
+      if (addCourse.statusCode == 200) {
         return AddCourseSuccessRes();
       } else {
         return AddCourseErrorRes();
