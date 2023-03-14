@@ -1,6 +1,6 @@
 part of 'package:osltestcubit/variable/imports.dart';
-class updateCourseDialog extends StatelessWidget {
-   updateCourseDialog({Key? key,required this.title,required this.description,required this.titleController,required this.descriptionController}) : super(key: key);
+class UpdateCourseDialog extends StatelessWidget {
+   UpdateCourseDialog({Key? key,required this.title,required this.description,required this.titleController,required this.descriptionController}) : super(key: key);
 final String title,description;
    TextEditingController titleController = TextEditingController();
    TextEditingController descriptionController = TextEditingController();

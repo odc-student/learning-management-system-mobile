@@ -1,5 +1,5 @@
 part of 'package:osltestcubit/variable/imports.dart';
-
+//Todo: clean drawer of users
 class NavBar extends StatelessWidget {
   const NavBar(
       {Key? key,
@@ -50,10 +50,10 @@ class NavBar extends StatelessWidget {
                           textColor: white,
                           selectedColor: odc,
                           iconColor: odc,
-                          selected: index == 0 ? true : false,
+                          selected: homeScreenIndex == 0 ? true : false,
                           onTap: () {
                             appBarTitle = 'All Courses';
-                            index = 0;
+                            homeScreenIndex = 0;
                             NavigatorService.instance
                                 .navigateToReplacement(HomeScreen());
                           },
@@ -72,10 +72,10 @@ class NavBar extends StatelessWidget {
                           textColor: white,
                           selectedColor: odc,
                           iconColor: odc,
-                          selected: index == 1 ? true : false,
+                          selected: homeScreenIndex == 1 ? true : false,
                           onTap: () {
                             appBarTitle = 'Profile';
-                            index = 1;
+                            homeScreenIndex = 1;
 
                             NavigatorService.instance
                                 .navigateToReplacement(HomeScreen());
@@ -87,9 +87,9 @@ class NavBar extends StatelessWidget {
                           textColor: white,
                           selectedColor: odc,
                           iconColor: odc,
-                          selected: index == 2 ? true : false,
+                          selected: homeScreenIndex == 2 ? true : false,
                           onTap: () {
-                            index = 2;
+                            homeScreenIndex = 2;
                             appBarTitle = 'All Users';
 
                             NavigatorService.instance

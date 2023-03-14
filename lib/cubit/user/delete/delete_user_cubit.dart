@@ -1,6 +1,5 @@
 part of 'package:osltestcubit/variable/imports.dart';
 
-
 class DeleteUserCubit extends Cubit<DeleteUserState> {
   final DeleteUserRepository _repository;
 

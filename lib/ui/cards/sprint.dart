@@ -123,14 +123,14 @@ class _SprintCardState extends State<SprintCard> {
                 context,
                 dialogDismissed(context),
                 _edit,
-                updateSprintDialog(
+                UpdateSprintDialog(
                     title: widget.title,
                     description: widget.link,
                     titleController: _titleController,
                     descriptionController: _linkController));
           } else {
             customDialog(context, dialogDismissed(context), _delete,
-                deleteSprintDialog(title: widget.title));
+                DeleteSprintDialog(title: widget.title));
           }
         },
         child: InkWell(
@@ -177,7 +177,7 @@ class _SprintCardState extends State<SprintCard> {
                                       color: odc,
                                     ),
                               onTap: () async{
-                                //Todo:change update cubit
+
                               await  context.read<UpdateSprintCubit>().update(
                                     widget.idCourse,
                                     widget.idSprint,

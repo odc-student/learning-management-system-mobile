@@ -2,15 +2,15 @@ part of 'package:osltestcubit/variable/imports.dart';
 
 
 class DeleteSprintCubit extends Cubit<DeleteSprintState> {
-  final DeleteSprintRepository _deleteCoursRepository;
+  final DeleteSprintRepository _deleteCourseRepository;
 
-  DeleteSprintCubit(this._deleteCoursRepository)
+  DeleteSprintCubit(this._deleteCourseRepository)
       : super(InitDeleteSprintState());
 
   Future<void> delete(String idCourse,idSprint) async {
     emit(LoadingDeleteSprintState());
     try {
-      final isDeleted = await _deleteCoursRepository.delete(idCourse,idSprint);
+      final isDeleted = await _deleteCourseRepository.delete(idCourse,idSprint);
       if (isDeleted) {
         emit(ResponseDeleteSprintState(true));
       } else {

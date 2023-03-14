@@ -37,7 +37,6 @@ class _ReadmeFileDataState extends State<ReadmeFileData> {
         _readmeContent = content;
       });
     }).catchError((error) {
-      print(error);
     });
   }
 

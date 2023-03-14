@@ -27,7 +27,7 @@ class UserCard extends StatelessWidget {
           _descriptionController.text.isEmpty
               ? email
               : _descriptionController.text);
-      context.read<UpdateCourseDataCubit>().update(id, "fullName",
+      context.read<UpdateUserDataCubit>().updateUser(id, "fullName",
           _titleController.text.isEmpty ? fullName : _titleController.text);
     }
 
@@ -112,13 +112,13 @@ class UserCard extends StatelessWidget {
                       descriptionController: _descriptionController));
             } else {
               customDialog(context, dialogDismissed(context), _delete,
-                  deleteUserDialog(title: fullName));
+                  DeleteUserDialog(title: fullName));
             }
           },
           child: InkWell(
             radius: 20,
             onTap: () {
-              NavigatorService.instance.navigateTo(EveryUserData(
+              NavigatorService.instance.navigateTo(UsersInformation(
                 id: id,
               ));
             },

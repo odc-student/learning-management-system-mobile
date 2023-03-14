@@ -30,7 +30,7 @@ class _ListCoursesState extends State<ListCourses> {
       builder: (BuildContext context, Object? state) {
         if (state is InitCourseState || state is LoadingCourseState) {
           return Center(
-            //Todo:custom Login
+            //Todo:custom splash screen
             child: const CircularProgressIndicator(),
           );
         } else if (state is ResponseCourseState) {

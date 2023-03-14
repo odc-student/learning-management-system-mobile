@@ -33,7 +33,8 @@ class _ListSprintsState extends State<ListSprints> {
   @override
   Widget build(BuildContext context) {
     void _add() async {
-      NavigatorService.instance.navigateToReplacement(ListSprints(title: widget.title, id: widget.id));
+      NavigatorService.instance.navigateToReplacement(
+          ListSprints(title: widget.title, id: widget.id));
 
       context
           .read<AddSprintCubit>()
@@ -44,7 +45,7 @@ class _ListSprintsState extends State<ListSprints> {
       backgroundColor: black,
       floatingActionButton: customActionButton(
           context,
-          addSprintFloatingButton(
+          AddSprintFloatingButton(
               titleController: _titleController,
               linkController: _linkController),
           _add),

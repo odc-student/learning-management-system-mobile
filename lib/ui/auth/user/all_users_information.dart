@@ -1,14 +1,14 @@
 part of 'package:osltestcubit/variable/imports.dart';
 
-class EveryUserData extends StatefulWidget {
-  EveryUserData({Key? key, required this.id}) : super(key: key);
+class UsersInformation extends StatefulWidget {
+  UsersInformation({Key? key, required this.id}) : super(key: key);
   String id;
 
   @override
-  State<EveryUserData> createState() => _EveryUserDataState();
+  State<UsersInformation> createState() => _UsersInformationState();
 }
 
-class _EveryUserDataState extends State<EveryUserData> {
+class _UsersInformationState extends State<UsersInformation> {
   TextEditingController text = TextEditingController();
   bool isEditable = false;
 
@@ -31,7 +31,6 @@ class _EveryUserDataState extends State<EveryUserData> {
           );
         } else if (state is ResponseUserState) {
           final _user = state.user;
-          print('hire $_user');
           return SingleChildScrollView(
             child: Column(
               children: [
@@ -69,7 +68,7 @@ class _EveryUserDataState extends State<EveryUserData> {
                   ],
                 ),
                 Text(
-                  'Edit ${_user.fullname} Profile',
+                  'Edit ${_user.fullName} Profile',
                   style: const TextStyle(color: white, fontSize: 30),
                 ),
                 Divider(
@@ -79,8 +78,8 @@ class _EveryUserDataState extends State<EveryUserData> {
                     ? Signup(
                         email: _user.email.toString(),
                         phoneN: _user.phoneN.toString(),
-                        fullName: _user.fullname.toString(),
-                        dateB: _user.dateB.toString(),
+                        fullName: _user.fullName.toString(),
+                        dateBerth: _user.dateBerth.toString(),
                       )
                     : Container(
                         margin: EdgeInsets.symmetric(horizontal: 25),
@@ -88,7 +87,7 @@ class _EveryUserDataState extends State<EveryUserData> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             profileText(
-                                "Full Name :", _user.fullname.toString()),
+                                "Full Name :", _user.fullName.toString()),
                             Divider(
                               color: white,
                             ),
@@ -103,7 +102,7 @@ class _EveryUserDataState extends State<EveryUserData> {
                               height: 4,
                             ),
                             profileText(
-                                "Date of Birth", _user.dateB.toString()),
+                                "Date of Birth", _user.dateBerth.toString()),
                             Divider(
                               color: white,
                             ),

@@ -11,7 +11,7 @@ class ErrorUpdateSprintState extends UpdateSprintState {
 }
 
 class ResponseUpdateSprintState extends UpdateSprintState {
-  final bool isupdated;
+  final bool isUpdated;
 
-  ResponseUpdateSprintState(this.isupdated);
+  ResponseUpdateSprintState(this.isUpdated);
 }

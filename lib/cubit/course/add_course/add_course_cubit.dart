@@ -8,7 +8,6 @@ class AddCourseCubit extends Cubit<AddCourseState> {
   Future<void> add(String titre, description) async {
     emit(LoadingAddCourseState());
     try {
-
       final addResponse = await _addCourseRepository.add(titre, description);
 
       emit(ResponseAddCourseState(addResponse));

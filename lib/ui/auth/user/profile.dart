@@ -9,7 +9,7 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   TextEditingController text = TextEditingController();
-  bool is_edit = false;
+  bool isEdit = false;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class _ProfileState extends State<Profile> {
                             borderRadius: BorderRadius.circular(50)),
                         child: IconButton(
                           icon: Icon(
-                            is_edit
+                            isEdit
                                 ? Icons.person_pin_outlined
                                 : Icons.edit_outlined,
                             size: 20,
@@ -49,7 +49,7 @@ class _ProfileState extends State<Profile> {
                           color: odc,
                           onPressed: () {
                             setState(() {
-                              is_edit = !is_edit;
+                              isEdit = !isEdit;
                             });
                           },
                         ),
@@ -63,12 +63,12 @@ class _ProfileState extends State<Profile> {
               Divider(
                 color: white,
               ),
-              is_edit
+              isEdit
                   ? Signup(
                       fullName: fullName,
-                      dateB: dateB,
+                      dateBerth: dateBirthDay,
                       email: email,
-                      phoneN: PhoneN,
+                      phoneN: PhoneNumber,
                     )
                   : Container(
                       margin: EdgeInsets.symmetric(horizontal: 25),
@@ -89,14 +89,14 @@ class _ProfileState extends State<Profile> {
                           SizedBox(
                             height: 5,
                           ),
-                          profileText("Date of Birth", dateB),
+                          profileText("Date of Birth", dateBirthDay),
                           Divider(
                             color: white,
                           ),
                           SizedBox(
                             height: 5,
                           ),
-                          profileText("Phone Number", PhoneN),
+                          profileText("Phone Number", PhoneNumber),
                           Divider(
                             color: white,
                           ),

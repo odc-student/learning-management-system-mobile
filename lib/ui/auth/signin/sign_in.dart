@@ -56,12 +56,10 @@ class _SignInState extends State<SignIn> {
           ),
           customButton(context, true, () async {
             if (_userEmailTextController.text.isEmpty) {
-              var snackBar =
-                  SnackBar(content: Text('Email is empty'));
+              var snackBar = SnackBar(content: Text('Email is empty'));
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
               if (_passwordTextController.text.isEmpty) {
-                var snackBar =
-                    SnackBar(content: Text('Password is empty'));
+                var snackBar = SnackBar(content: Text('Password is empty'));
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
               }
             } else {

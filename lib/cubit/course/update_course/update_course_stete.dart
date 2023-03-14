@@ -11,7 +11,7 @@ class ErrorUpdateCourseDataState extends UpdateCourseDataState {
 }
 
 class ResponseUpdateCourseDataState extends UpdateCourseDataState {
-  final bool isupdated;
+  final bool isUpdated;
 
-  ResponseUpdateCourseDataState(this.isupdated);
+  ResponseUpdateCourseDataState(this.isUpdated);
 }

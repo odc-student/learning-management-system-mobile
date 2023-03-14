@@ -130,7 +130,7 @@ class _CourseCardState extends State<CourseCard> {
                   context,
                   dialogDismissed(context),
                   _editCourse,
-                  updateCourseDialog(
+                  UpdateCourseDialog(
                       title: widget.title,
                       titleController: _titleController,
                       description: widget.description,
@@ -138,7 +138,7 @@ class _CourseCardState extends State<CourseCard> {
                 );
               } else {
                 customDialog(context, dialogDismissed(context), _deleteCourse,
-                    deleteCourseDialog(title: widget.title));
+                    DeleteCourseDialog(title: widget.title));
               }
             },
             child: InkWell(

@@ -11,7 +11,7 @@ class _HomeScreenState extends State<HomeScreen> {
   TextEditingController _titleController = TextEditingController();
   TextEditingController _descriptionController = TextEditingController();
   bool startAnimation = false;
-  List Pages = <Widget>[ListCourses(), Profile(), ListUsers()];
+  List pages = <Widget>[ListCourses(), Profile(), ListUsers()];
 
   @override
   void initState() {
@@ -46,9 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
       } else if (state is ResponseUserDataState) {
         return Scaffold(
             backgroundColor: black,
-            floatingActionButton: index == 0 || index == 2
+            floatingActionButton: homeScreenIndex == 0 || homeScreenIndex == 2
             //Todo: problem with cancel => (){} ;Todo:Change container to addCourseFloatingButton
-                ?customActionButton(context, addCourseFloatingButton(titleController: _titleController, descriptionController: _descriptionController),_add )
+                ?customActionButton(context, AddCourseFloatingButton(titleController: _titleController, descriptionController: _descriptionController),_add )
                 : null,
             drawer: NavBar(
               isInstructor: false,
@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            body: Pages[index]);
+            body: pages[homeScreenIndex]);
       } else if (state is ErrorUserDataState) {
         print(state.message);
         return Container(

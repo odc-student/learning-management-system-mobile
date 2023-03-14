@@ -1,17 +1,19 @@
-
 part of 'package:osltestcubit/variable/imports.dart';
 
-abstract class UserState{}
-class InitUserState extends UserState{}
+abstract class UserState {}
 
-class LoadingUserState extends UserState{}
+class InitUserState extends UserState {}
 
-class ErrorUserState extends UserState{
+class LoadingUserState extends UserState {}
+
+class ErrorUserState extends UserState {
   final String message;
+
   ErrorUserState(this.message);
 }
 
-class ResponseUserState extends UserState{
-  final userData user;
+class ResponseUserState extends UserState {
+  final UserData user;
+
   ResponseUserState(this.user);
 }

@@ -5,12 +5,12 @@ class Signup extends StatefulWidget {
       {Key? key,
       required this.email,
       required this.fullName,
-      required this.dateB,
+      required this.dateBerth,
       required this.phoneN})
       : super(key: key);
   final String email;
   final String fullName;
-  final String dateB;
+  final String dateBerth;
   final String phoneN;
 
   @override
@@ -56,7 +56,7 @@ class _SignupState extends State<Signup> {
           getTextField(widget.email.toString().isEmpty ? "Email" : widget.email,
               Icons.mail_outline_rounded, false, _userEmailTextController),
           getTextField(
-              widget.dateB.toString().isEmpty ? "Date of Birth" : widget.dateB,
+              widget.dateBerth.toString().isEmpty ? "Date of Birth" : widget.dateBerth,
               Icons.event_rounded,
               false,
               _dateOfBirthTextController),
@@ -71,8 +71,8 @@ class _SignupState extends State<Signup> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    //Todo: fix BAse64 code in there folder
-                    //  Base64.Encod("email", _userEmailTextController.text);
+                    //Todo: consume multer code in there folder
+
                   },
                   child: Text(
                     "upload",

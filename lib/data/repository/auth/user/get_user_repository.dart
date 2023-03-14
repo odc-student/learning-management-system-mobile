@@ -3,7 +3,7 @@ part of 'package:osltestcubit/variable/imports.dart';
 class UserRepository {
   static const url = urlUser;
 
-  Future<userData> getUser(String id) async {
+  Future<UserData> getUser(String id) async {
     final uri = Uri.parse('$url/$id');
     final response = await http.get(
       uri,
@@ -13,7 +13,7 @@ class UserRepository {
       },
     );
     if (response.statusCode == 200) {
-      final result = userData.fromJson(jsonDecode(response.body));
+      final result = UserData.fromJson(jsonDecode(response.body));
 
       return result;
     } else {

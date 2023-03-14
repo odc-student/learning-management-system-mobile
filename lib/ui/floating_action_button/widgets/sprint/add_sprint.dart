@@ -1,7 +1,7 @@
 part of 'package:osltestcubit/variable/imports.dart';
 
-class addSprintFloatingButton extends StatelessWidget {
-  addSprintFloatingButton(
+class AddSprintFloatingButton extends StatelessWidget {
+  AddSprintFloatingButton(
       {Key? key, required this.titleController, required this.linkController})
       : super(key: key);
 

@@ -1,5 +1,7 @@
 part of 'package:osltestcubit/variable/imports.dart';
-Widget customActionButton(BuildContext context,Widget widgetActionButton,Function todoOnOK ){
+
+Widget customActionButton(
+    BuildContext context, Widget widgetActionButton, Function todoOnOK) {
   return FloatingActionButton(
     backgroundColor: odc,
     child: Icon(
@@ -18,17 +20,17 @@ Widget customActionButton(BuildContext context,Widget widgetActionButton,Functio
       onDismissCallback: (type) {},
       headerAnimationLoop: false,
       animType: AnimType.bottomSlide,
-      title: index == 0 ? 'Add Course' : 'Add User',
+      title: homeScreenIndex == 0 ? 'Add Course' : 'Add User',
       body: widgetActionButton,
       showCloseIcon: true,
       btnCancelOnPress: () {},
-      btnOkOnPress: index == 0
-          ? (){todoOnOK();
-      print(true);}
-
+      btnOkOnPress: homeScreenIndex == 0
+          ? () {
+              todoOnOK();
+            }
           : () {
-        // Todo:fix signup User
-      },
+              // Todo:fix signup User
+            },
     ).show(),
   );
 }

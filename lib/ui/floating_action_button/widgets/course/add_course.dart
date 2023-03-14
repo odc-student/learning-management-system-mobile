@@ -1,6 +1,6 @@
 part of 'package:osltestcubit/variable/imports.dart';
-class addCourseFloatingButton extends StatelessWidget {
-   addCourseFloatingButton({Key? key,required this.titleController,required this.descriptionController}) : super(key: key);
+class AddCourseFloatingButton extends StatelessWidget {
+   AddCourseFloatingButton({Key? key,required this.titleController,required this.descriptionController}) : super(key: key);
 
  final TextEditingController titleController ;
   final TextEditingController descriptionController ;
@@ -9,11 +9,11 @@ class addCourseFloatingButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Container(
           margin: EdgeInsets.all(30),
-          child: index == 0
+          child: homeScreenIndex == 0
               ? Column(
             children: [
               AnimatedTextField(
-                label: index == 0
+                label: homeScreenIndex == 0
                     ? 'Course Titile'
                     : 'Full Name',
                 suffix: Icon(Icons.title),

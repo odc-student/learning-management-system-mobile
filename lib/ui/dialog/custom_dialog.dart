@@ -1,5 +1,5 @@
 part of 'package:osltestcubit/variable/imports.dart';
-//Todo:use it
+
 
 
 Future<dynamic> customDialog(BuildContext context,dynamic todoOnDismiss,Function todoOnOK,Widget dialogContainer) {

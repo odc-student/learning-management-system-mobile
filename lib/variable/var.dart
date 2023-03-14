@@ -7,17 +7,16 @@ var email;
 var fullName;
 var id;
 
-var dateB;
-var PhoneN;
+var dateBirthDay;
+var PhoneNumber;
 
 // var
-var index = 0; //Todo: change me to 0
+var homeScreenIndex = 0; //Todo: change me to 0
 var appBarTitle = 'All Courses';
 
 //Colors
 const odc = Color(0xFFFF7900);
 
-const dodc = Colors.deepOrange;
 const black = Colors.black;
 const grey = Colors.grey;
 const white = Colors.white;

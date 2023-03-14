@@ -5,11 +5,10 @@ class AddSprintCubit extends Cubit<AddSprintState> {
 
   AddSprintCubit(this._addSprintRepository) : super(InitAddSprintState());
 
-  Future<void> add(String titre, link,idCourse) async {
+  Future<void> add(String titre, link, idCourse) async {
     emit(LoadingAddSprintState());
     try {
-
-      final addResponse = await _addSprintRepository.add(titre, link,idCourse);
+      final addResponse = await _addSprintRepository.add(titre, link, idCourse);
 
       emit(ResponseAddSprintState(addResponse));
     } catch (e) {
