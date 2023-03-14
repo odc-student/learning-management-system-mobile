@@ -12,7 +12,7 @@ Container customButton(BuildContext context, bool isLogin, Function onTap) {
         child: Text(
           isLogin ? 'Sign In' : 'Save',
           style: const TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
+              color: black, fontWeight: FontWeight.bold, fontSize: 16),
         ),
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.resolveWith((states) {

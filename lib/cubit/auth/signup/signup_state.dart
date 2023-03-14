@@ -9,8 +9,8 @@ class ErrorSignupState extends SignupState{
   final String message;
   ErrorSignupState(this.message);
 }
-class ResposeSignupState extends SignupState{
-  final bool issignup;
-  ResposeSignupState(this.issignup);
+class ResponseSignupState extends SignupState{
+  final bool isSignup;
+  ResponseSignupState(this.isSignup);
 }
 

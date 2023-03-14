@@ -1,18 +1,18 @@
-class user {
+class User {
   String? id;
   String? email;
   String? pwd;
   String? fullName;
 
-  user({
+  User({
     this.id,
     this.email,
     this.pwd,
     this.fullName,
   });
 
-  factory user.fromJson(dynamic json) {
-    return user(
+  factory User.fromJson(dynamic json) {
+    return User(
       id: json['_id'] as String?,
       email: json['email'] as String?,
       pwd: json['password'] as String?,
@@ -22,20 +22,20 @@ class user {
 }
 
 // get all users
-class allUserSuccess {
+class AllUserSuccess {
   final bool success;
-  final List<user> userattribute;
+  final List<User> userattribute;
 
-  allUserSuccess({
+  AllUserSuccess({
     required this.success,
     required this.userattribute,
   });
 
-  factory allUserSuccess.fromJson(json) {
-    return allUserSuccess(
+  factory AllUserSuccess.fromJson(json) {
+    return AllUserSuccess(
         success: json['success'],
-        userattribute: List<user>.from(
-                (json['user'] as List<dynamic>).map((e) => user.fromJson(e)))
+        userattribute: List<User>.from(
+                (json['user'] as List<dynamic>).map((e) => User.fromJson(e)))
             .toList());
   }
 }
@@ -60,46 +60,46 @@ class userRes {
 }
 
 // curent user Data
-class userSucc {
+class UserSuccess {
   final bool success;
   final Map userattribute;
 
-  userSucc({
+  UserSuccess({
     required this.success,
     required this.userattribute,
   });
 
-  factory userSucc.fromJson(json) {
-    return userSucc(success: json['success'], userattribute: json['user']);
+  factory UserSuccess.fromJson(json) {
+    return UserSuccess(success: json['success'], userattribute: json['user']);
   }
 }
 
 // get user by id
-class userData {
+class UserData {
   final bool success;
   final Map attribute;
   String? id;
   String? email;
-  String? fullname;
-  String? dateB;
+  String? fullName;
+  String? dateBerth;
   String? phoneN;
 
-  userData(
+  UserData(
       {required this.success,
       required this.attribute,
       this.id,
       this.email,
-      this.fullname,
-      this.dateB,
+      this.fullName,
+      this.dateBerth,
       this.phoneN});
 
-  factory userData.fromJson(json) {
-    return userData(
+  factory UserData.fromJson(json) {
+    return UserData(
       success: json['success'],
       id: json['data']['id'],
       email: json['data']['email'],
-      fullname: json['data']['fullName'],
-      dateB: json['data']['dateOfBirth'],
+      fullName: json['data']['fullName'],
+      dateBerth: json['data']['dateOfBirth'],
       phoneN: json['data']['phoneNumber'],
       attribute: json['data'],
     );

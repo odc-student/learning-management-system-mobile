@@ -1,6 +1,5 @@
 part of 'package:osltestcubit/variable/imports.dart';
 
-
 class DeleteUserCubit extends Cubit<DeleteUserState> {
   final DeleteUserRepository _repository;
 
@@ -13,7 +12,7 @@ class DeleteUserCubit extends Cubit<DeleteUserState> {
       if (isDeleted) {
         emit(ResponseDeleteUserState(true));
       } else {
-        emit(ErrorDeleteUserState('Failed to delete data.'));
+        emit(ErrorDeleteUserState('Failed to add data.'));
       }
     } catch (e) {
       emit(ErrorDeleteUserState(e.toString()));

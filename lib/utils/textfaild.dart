@@ -21,8 +21,7 @@ Widget getTextField(String text, IconData icon, bool isPassword,
       floatingLabelBehavior: FloatingLabelBehavior.never,
       fillColor: Colors.grey.withOpacity(0.0),
     ),
-    keyboardType: isPassword
-        ? TextInputType.visiblePassword
-        : TextInputType.emailAddress,
+    keyboardType:
+        isPassword ? TextInputType.visiblePassword : TextInputType.emailAddress,
   );
 }
